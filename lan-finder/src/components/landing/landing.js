@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { Link } from 'react-router-dom'
-
+import './landing.css'
 
 export default class Landing extends Component{
     render(){
@@ -9,8 +9,8 @@ export default class Landing extends Component{
             <div>
                 <div className="row">
                     <div className="col-sm-12">
-                        <div className="card">
-                            <h1 className='center-align'></h1>
+                        <div className="card landingImage">
+                            <h1 className=''>stuff</h1>
                             <br/>
                             <br/>
                             <br/>
