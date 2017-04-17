@@ -28,7 +28,7 @@
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "FBpassport.js",
+  "main": "server.js",
   "author": "",
   "license": "ISC"
 }
