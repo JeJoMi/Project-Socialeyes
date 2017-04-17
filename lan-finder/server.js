@@ -8,6 +8,9 @@ const getDataRoutes = require('./routes/getDataRoutes');
 const keys = require('./keys');
 const port = 3001;
 
+const db = require('./db');
+// console.log(db);
+
 const app = express()
 
 const loginCtrl = require('./logic/loginController');

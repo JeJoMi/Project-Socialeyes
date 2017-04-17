@@ -9,6 +9,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "massive": "^2.6.0",
+    "massive-migrate": "^0.10.0",
     "material-ui": "^0.17.4",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
