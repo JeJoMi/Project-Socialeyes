@@ -9,6 +9,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "massive": "^2.6.0",
+    "massive-migrate": "^0.10.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "react": "^15.5.4",
@@ -28,7 +29,7 @@
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "FBpassport.js",
+  "main": "server.js",
   "author": "",
   "license": "ISC"
 }
