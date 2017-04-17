@@ -4,11 +4,19 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "massive": "^2.6.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "session": "^0.1.0"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
@@ -18,5 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "FBpassport.js",
+  "author": "",
+  "license": "ISC"
 }
