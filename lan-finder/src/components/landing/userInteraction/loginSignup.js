@@ -10,7 +10,7 @@ export default class UserInteractionCard extends Component {
 					</p>
 				</div>
 				<div className="card-content grey lighten-4">
-					<a href='/auth/facebook' className='btn btn-block blue darken-4'>
+					<a href='/auth/facebook' className='btn blue darken-4'>
 						login with Facebook
 					</a>
 				</div>
