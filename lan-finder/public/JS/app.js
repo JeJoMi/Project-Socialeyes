@@ -21,4 +21,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         url:'/about',
         templateUrl:'../views/about.html'
     })
+    .state('edit_profile',{
+        url:'/edit_profile',
+        templateUrl:'../views/editProfile.html'
+    })
 }])
