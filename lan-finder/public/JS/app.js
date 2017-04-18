@@ -6,6 +6,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     $stateProvider
     .state('landing', {
         url:'/',
-        templateUrl:'../views/landing/landingTmpl.html'
+        templateUrl:'../views/landing.html'
     })
 }])
