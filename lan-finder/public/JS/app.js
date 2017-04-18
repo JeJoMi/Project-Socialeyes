@@ -9,4 +9,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         templateUrl:'../views/landing.html',
         controller: 'mainCtrl'
     })
+    .state('home', {
+        url:'/home',
+        templateUrl:'../views/home.html'
+    })
 }])
