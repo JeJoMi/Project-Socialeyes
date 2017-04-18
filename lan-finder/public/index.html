@@ -8,16 +8,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/master.css">
 
 </head>
 
 <body>
     <div ng-app='lan-finder'>
-        <div ng-controller='mainCtrl'>
-          <navbar></navbar>
-          <br></br>
+        <div style='min-height:100vh;' ng-controller='mainCtrl'>
+            <navbar></navbar>
+            <br></br>
             <ui-view></ui-view>
-          <footerbar></footerbar>
+            <footerbar></footerbar>
         </div>
     </div>
 
