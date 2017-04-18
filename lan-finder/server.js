@@ -6,6 +6,9 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const cors = require('cors');
 const getDataRoutes = require('./routes/getDataRoutes');
 const keys = require('./keys');
+
+const massive = require('massive');
+
 const port = 3000;
 
 const db = require('./db');
@@ -35,7 +38,10 @@ passport.use(new FacebookStrategy({
     callbackURL: 'http://localhost:3000/auth/facebook/callback',
     profileFields:['id','email']
 }, function(token, refreshToken, profile, done) {
-    console.log(profile, 'func');
+    console.log(profile._json.email, 'func');
+    db.createUser([profile._json.email], (err, user) => {
+      console.log(err, user);
+    })
     return done(null, profile);
 }));
 passport.serializeUser(function(user, done) {
@@ -59,6 +65,6 @@ app.get('/auth/facebook/callback',
 // ##################################################
 
 app.get('*', function(req, res) {
-    res.sendFile(__dirname + '/build/index.html')
+    res.sendFile(__dirname + '/public/index.html')
 })
 app.listen(port, ()=>console.log(`listening on ${port}`))
