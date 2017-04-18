@@ -6,7 +6,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const cors = require('cors');
 const getDataRoutes = require('./routes/getDataRoutes');
 const keys = require('./keys');
-const port = 3001;
+const port = 3000;
 
 const db = require('./db');
 // console.log(db);
@@ -32,7 +32,7 @@ app.use('/getDataFrom', getDataRoutes)
 passport.use(new FacebookStrategy({
     clientID: keys.FBAppId,
     clientSecret: keys.FBSecret,
-    callbackURL: 'http://localhost:3001/auth/facebook/callback',
+    callbackURL: 'http://localhost:3000/auth/facebook/callback',
     profileFields:['id','email']
 }, function(token, refreshToken, profile, done) {
     console.log(profile, 'func');
