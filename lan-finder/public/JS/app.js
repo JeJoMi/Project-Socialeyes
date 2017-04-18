@@ -8,4 +8,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         url:'/',
         templateUrl:'../views/landing.html'
     })
+    .state('home', {
+        url:'/home',
+        templateUrl:'../views/home.html'
+    })
 }])
