@@ -3,6 +3,6 @@ CREATE TABLE IF NOT EXISTS users(
   id SERIAL PRIMARY KEY,
   name VARCHAR(40),
   email VARCHAR(40),
-  password VARCHAR(40)
+  photo text
 );
 COMMIT;
