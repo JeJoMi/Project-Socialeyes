@@ -13,4 +13,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         url:'/home',
         templateUrl:'../views/home.html'
     })
+    .state('events',{
+        url:'/events',
+        templateUrl:'../views/events.html'
+    })
+    .state('about',{
+        url:'/about',
+        templateUrl:'../views/about.html'
+    })
 }])
