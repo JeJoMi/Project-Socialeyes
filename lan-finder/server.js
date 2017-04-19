@@ -43,7 +43,8 @@ passport.use(new FacebookStrategy({
   callbackURL: 'http://localhost:3000/auth/facebook/callback',
   profileFields: ['id', 'email']
 }, function(token, refreshToken, profile, done) {
-  db.createUser([profile._json.email],(err, profile)=>console.log(err, '+++++++++++++++++++++++', profile))
+  db.createUser([profile._json.email],(err, profile) =>
+  console.log(err, '+++++++++++++++++++++++', profile))
   return done(null, profile);
 }));
 passport.serializeUser(function(user, done) {

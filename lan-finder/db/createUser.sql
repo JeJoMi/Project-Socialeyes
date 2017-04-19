@@ -4,8 +4,8 @@
 -- RETURNING *
 -- ;
 
-insert into users(email)
-  select $1
-  where not exists (select * from users where email = $1)
+INSERT INTO users(email)
+  SELECT $1
+  WHERE NOT EXISTS (SELECT * FROM users WHERE email = $1)
 RETURNING *
 ;
