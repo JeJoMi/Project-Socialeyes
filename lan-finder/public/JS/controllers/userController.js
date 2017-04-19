@@ -10,6 +10,10 @@ app.controller('userController', ['$scope','userService', function($scope, userS
         let obj = {
             firstName, lastName, interests, eventTypes:eventTypesArr, gender
         }
-        userService.submitProfile(obj)
+        userService.submitProfile(obj).then(x=>{
+          console.log(x);
+        },err=>{
+          console.log(err);
+        })
     }
 }])
