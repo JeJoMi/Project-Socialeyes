@@ -5,48 +5,61 @@
             <div class="row">
                 <form class="col s12">
                     <div class="row">
+
                         <div class="input-field col m6 s12">
                             <input id="name" type="text" class="validate" ng-model='firstName'>
                             <label for="name" data-error="wrong" data-success="right">First Name</label>
                         </div>
+
                         <div class="input-field col m6 s12">
                             <input id="last_name" type="text" class="validate" ng-model='lastName'>
                             <label for="last_name" data-error="wrong" data-success="right">Last Name</label>
                         </div>
-                        <div class="file-field input-field col m9 s6">
-                            <div class="btn red accent-4">
-                                <span>File</span>
-                                <input type="file">
+
+                        <div class="col m9 s6">
+                            <div class="file-field input-field">
+                                <div class="btn red accent-4">
+                                    <span>File</span>
+                                    <input type="file" id='userPhoto'>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                                <button type="button" class='btn green' name="button" ng-click='upload("userPhoto")'>UPLOAD</button>
                             </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
+
+
                             <h5 class="center-align">Gender</h5>
                             <div class="row">
                                 <p class="col m3 offset-m3 s12 center-align">
-                                    <input name="group1" class='active' type="radio" id="male" value='male' ng-model='gender'/>
+                                    <input name="group1" class='active' type="radio" id="male" value='male' ng-model='gender' />
                                     <label for="male">male</label>
                                 </p>
                                 <p class='col m3  s12 center-align'>
-                                    <input name="group1" type="radio" id="female" value='female' ng-model='gender'/>
+                                    <input name="group1" type="radio" id="female" value='female' ng-model='gender' />
                                     <label for="female">female</label>
                                 </p>
-
                             </div>
                         </div>
-                        <div class="col s6 m3">
-                            <img class='responsive-img align-center' src="http://placehold.it/200x200" alt="">
+
+                        <div class="col s6 m3 ">
+                            <img class='responsive-img align-center' id='preview' src="http://placehold.it/200x200" alt="">
                         </div>
+
                         <br>
                     </div>
+
+
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea id="textarea1" class="materialize-textarea" ng-model='interests'></textarea>
                             <label for="textarea1">What are you interests?</label>
                         </div>
                     </div>
+
+
                     <div class="row">
-                        <div class="input-field">
+                        <div class="input-field ">
                             <p class='col s3'>
                                 <input type="checkbox" id='board-games' value='board games' ng-model='event.boardGames'>
                                 <label for="board-games"><i class="fa fa-lg fa-puzzle-piece"></i> Board Games</label>
@@ -65,13 +78,15 @@
                             </p>
                         </div>
                         <br>
+
+
                     </div>
                     <div class="col m3">
                         <br>
-                        {{event}}
-                        {{gender}}
                         <button class='btn red accent-4' ng-click='submitProfile(firstName, lastName, interests, gender, event)'>Submit</button>
                     </div>
+
+
                 </form>
             </div>
         </div>
