@@ -23,6 +23,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
     .state('edit_profile',{
         url:'/edit_profile',
-        templateUrl:'../views/editProfile.html'
+        templateUrl:'../views/editProfile.html',
+        controller:'userController'
     })
 }])
