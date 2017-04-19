@@ -8,6 +8,8 @@ const getDataRoutes = require('./routes/getDataRoutes');
 const postDataRoutes = require('./routes/postDataRoutes');
 const keys = require('./keys');
 
+const aws = require('./s3.js')
+
 const massive = require('massive');
 
 const port = 3000;
@@ -22,12 +24,15 @@ const loginCtrl = require('./logic/loginController');
 app.use(bodyParser.json())
 app.use(cors())
 app.use(session({secret: keys.sessionSecret}))
+
 app.use(passport.initialize());
 app.use(passport.session())
 app.use(express.static('./public'))
 
 app.use('/getDataFrom', getDataRoutes)
 app.use('/postDataTo', postDataRoutes)
+
+app.get('/s3_signed_url', aws.getSignedUrl)
 
 // ##################################################
 // #################################################
@@ -47,7 +52,6 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(obj, done) {
-  // console.log(obj, 'deserial');
   done(null, obj);
 });
 
@@ -61,7 +65,10 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 // #################################################
 // ##################################################
 
+
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/public/index.html')
 })
+
+
 app.listen(port, () => console.log(`listening on ${port}`))
