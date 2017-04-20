@@ -11,9 +11,11 @@ module.exports = {
     })
   }
 
-  // createEvent: (req, res, next) => {
-  //   let {}
-  //   db.createEvent([])
-  // }
+//   createEvent: (req, res, next) => {
+//     let {description, createdAt, eventDate, eventName, createdBy, eventTypes} = req.body
+//     db.createEvent([description, createdAt, eventDate, eventName, createdBy, eventTypes], function(err, event) {
+//
+// })
+//   }
 
 }
