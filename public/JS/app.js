@@ -27,4 +27,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         templateUrl:'../views/editProfile.html',
         controller:'userController'
     })
+    .state('messages', {
+        url:'/messages',
+        templateUrl:'../views/messages.html'
+    })
+    .state('message',{
+        url:'/message/:id',
+        templateUrl:'../views/message.html'
+    })
+    .state('user_photos',{
+        url:'/user_photos',
+        templateUrl:'../views/userPhotos.html'
+    })
 }])
