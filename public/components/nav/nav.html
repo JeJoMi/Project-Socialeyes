@@ -2,19 +2,24 @@
     <li>
         <h5 class="center-align">With</h5 class=""></li>
     <li class="divider"></li>
-  <li><a href="/auth/facebook" class="">facebook <i class="fa fa-facebook-square"></i></a></li>
+  <li><a href="/auth/facebook" class="">facebook</a></li>
 </ul>
+
+<ul id="dropdown2" class="dropdown-content">
+  <li><a ng-click='$ctrl.logout()' class="">logout</a></li>
+</ul>
+
 
 <nav class='red accent-4'>
     <div class="nav-wrapper  container">
         <a href="#" <i class="material-icons">power_settings_new</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul id="nav-mobile" class="right hide-on-sm-and-down">
             <li ng-show='$ctrl.user'><a ui-sref='home'>Home</a></li>
             <li><a ui-sref='events'>Events</a></li>
             <li><a ui-sref='about'>About</a></li>
             <li><a>Contact</a></li>
-            <li ng-hide='$ctrl.user'><a class='dropdown-button' data-activates='dropdown1'><i class="fa fa-sign-in"></i>Login/Sign Up <i class="fa fa-caret-down"></i></a></li>
-            <li ng-show='$ctrl.user'><a ><i class="fa fa-bars fa-md"></i></a></li>
+            <li ng-hide='$ctrl.user'><a class='dropdown-button' data-activates='dropdown1'>Login/Sign Up <i class="fa fa-caret-down"></i></a></li>
+            <li ng-show='$ctrl.user'><a class='dropdown-button' data-activates='dropdown2'> <i class="fa fa-bars"></i></a></li>
         </ul>
     </div>
 </nav>

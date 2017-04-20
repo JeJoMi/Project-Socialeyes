@@ -7,6 +7,7 @@ const cors = require('cors');
 const getDataRoutes = require('./routes/getDataRoutes');
 const postDataRoutes = require('./routes/postDataRoutes');
 const keys = require('./keys');
+const logout = require('express-passport-logout')
 
 const aws = require('./s3.js')
 const massive = require('massive');
@@ -35,6 +36,11 @@ app.use('/postDataTo', postDataRoutes)
 app.get('/s3_signed_url', aws.getSignedUrl)
 
 
+app.get('/logout', function(req,res){
+    console.log('hitting me too');
+    logout()
+    req.session.destroy()
+})
 
 // ##################################################
 // #################################################
