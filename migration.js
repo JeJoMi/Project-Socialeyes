@@ -43,6 +43,12 @@ massiveMigrate(options, function (err, migrations) {
 									if(!err) {
 										console.log('Pending-friends table created')
 									}
+
+									migrations.runUpMigration({ name: "create-messages-" + version}, function(err) {
+										if(!err) {
+											console.log('Messages table created')
+										}
+									});
 								});
 							});
 						});
