@@ -11,7 +11,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
     .state('home', {
         url:'/home',
-        templateUrl:'../views/home.html'
+        templateUrl:'../views/home.html',
+        controller:'userController'
     })
     .state('events',{
         url:'/events',
