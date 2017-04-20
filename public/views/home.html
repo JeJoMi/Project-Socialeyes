@@ -6,7 +6,7 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-panel blue">
-                    <span class="card-title white-text">Welcome back {{user.first_name}} {{user.last_name}}</span>
+                    <span class="card-title white-text">Welcome back {{user.first_name}} {{user.last_name}} <i class="fa {{'fa-'+user.gender}}"></i></span>
                     <div class="col s2 well">
                         <img ng-hide='user.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
                         <img ng-show='user.photo' ng-src="{{user.photo}}" alt="" style='max-height:180px;max-width:180px;border-radius:5px' class="card responsive-img z-depth-5">
@@ -30,8 +30,8 @@
                 <div class="collection">
                     <a class="collection-item"><span class="badge">{{user.events.length}}</span><i class="material-icons">settings_power</i>Events</a>
                     <a class="collection-item"><span class="badge">{{user.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</a>
-                    <a class="collection-item"><span class="new badge red accent-4">{{user.newMessages || 0}}</span><i class="material-icons">email</i>Messages</a>
-                    <a class="collection-item"><span class="badge">{{users.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</a>
+                    <a ui-sref='messages' class="collection-item"><span class="new badge red accent-4">{{user.newMessages || 0}}</span><i class="material-icons">email</i>Messages</a>
+                    <a ui-sref='user_photos' class="collection-item"><span class="badge">{{users.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</a>
                     <a ui-sref='edit_profile' class="collection-item"><i class="material-icons">settings</i>Edit Profile</a>
                 </div>
 
@@ -47,9 +47,9 @@
             <div class="col s12">
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a href="#test4">Recent Events</a></li>
-                        <li class="tab"><a class="active" href="#test5">Add Photos</a></li>
-                        <li class="tab"><a href="#test6">News Feed</a></li>
+                        <li class="tab"><a href="">Recent Events</a></li>
+                        <li class="tab"><a class="active" href="">Add Photos</a></li>
+                        <li class="tab"><a href="">News Feed</a></li>
                     </ul>
                 </div>
                 <div class="card">
