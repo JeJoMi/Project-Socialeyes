@@ -1,7 +1,8 @@
 app.controller('mainCtrl', [
 	'$scope',
+	'$location',
 	'mainSrvc',
-	function ( $scope, mainSrvc ) {
+	function ( $scope, $location, mainSrvc ) {
 		function capitalizeFirstLetter( string ) {
 			return string.charAt( 0 ).toUpperCase( ) + string.slice( 1 );
 		}
