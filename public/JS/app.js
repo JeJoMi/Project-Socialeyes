@@ -11,7 +11,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
     .state('home', {
         url:'/home',
-        templateUrl:'../views/home.html'
+        templateUrl:'../views/home.html',
+        controller:'userController'
     })
     .state('events',{
         url:'/events',
@@ -25,5 +26,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         url:'/edit_profile',
         templateUrl:'../views/editProfile.html',
         controller:'userController'
+    })
+    .state('messages', {
+        url:'/messages',
+        templateUrl:'../views/messages.html'
+    })
+    .state('message',{
+        url:'/message/:id',
+        templateUrl:'../views/message.html'
+    })
+    .state('user_photos',{
+        url:'/user_photos',
+        templateUrl:'../views/userPhotos.html'
     })
 }])

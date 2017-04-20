@@ -4,8 +4,15 @@ module.exports = {
         user: (req, res, next) => {
           if (req.user) {
             db.getUser([req.user._json.email], (err, users) => {
-              console.log(users,'++++++++++++++++++',err);
-              res.send(users)
+              db.getEventByUserEmail([users[0].email], (err, event) => {
+                console.log(event);
+                users[0].hostedEvents = event
+                db.getUsersAttendedEvents([users[0].email], (err, attended) => {
+                  users[0].events = attended
+                  console.log(users[0]);
+                  res.send(users)
+                })
+              })
             })
           }
         }

@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.min.css">
     <link rel="stylesheet" href="styles/master.css">
 
 </head>
@@ -31,6 +32,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script src="https://use.fontawesome.com/568b763205.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.min.js" charset="utf-8"></script>
 
 
     <script src="js/app.js" charset="utf-8"></script>
@@ -48,6 +50,49 @@
     <script src="js/services/mainSrvc.js" charset="utf-8"></script>
     <script src="js/services/userService.js" charset="utf-8"></script>
 
+
+    <script>
+    $( document ).ready(function() {
+        var $uploadCrop;
+
+        function readFile(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $uploadCrop.croppie('bind', {
+                        url: e.target.result
+                    });
+                    $('.upload-demo').addClass('ready');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $uploadCrop = $('#upload-demo').croppie({
+            viewport: {
+                width: 200,
+                height: 200,
+                type: 'circle'
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            }
+        });
+
+        $('#upload').on('change', function () { readFile(this); });
+        $('.preview').on('click', function (ev) {
+            $uploadCrop.croppie('result', {
+                type: 'canvas',
+                size: 'original'
+            }).then(function (resp) {
+                $('#imagebase64').val(resp);
+                $('#form').submit();
+            });
+        });
+
+    });
+    </script>
 </body>
 
 </html>
