@@ -18,8 +18,8 @@
             <li><a ui-sref='events'>Events</a></li>
             <li><a ui-sref='about'>About</a></li>
             <li><a>Contact</a></li>
-            <li ng-hide='$ctrl.user'><a class='dropdown-button' data-activates='dropdown1'>Login/Sign Up <i class="fa fa-caret-down"></i></a></li>
-            <li ng-show='$ctrl.user'><a class='dropdown-button' data-activates='dropdown2'> <i class="fa fa-bars"></i></a></li>
+            <li ng-hide='$ctrl.user'><a class='dropdown-button' dropdown data-activates='dropdown1'>Login/Sign Up <i class="fa fa-caret-down"></i></a></li>
+            <li ng-show='$ctrl.user'><a class='dropdown-button' dropdown data-activates='dropdown2'> <i class="fa fa-bars"></i></a></li>
         </ul>
     </div>
 </nav>

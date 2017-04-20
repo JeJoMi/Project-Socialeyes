@@ -2,16 +2,22 @@ app.controller('mainCtrl', [
 	'$scope',
 	'mainSrvc',
 	function ( $scope, mainSrvc ) {
-		$(".dropdown-button").dropdown()
+		function capitalizeFirstLetter( string ) {
+			return string.charAt( 0 ).toUpperCase( ) + string.slice( 1 );
+		}
 
 		mainSrvc.getUser( ).then(x => {
-			$scope.user = x.data
+			x.data[0].first_name = capitalizeFirstLetter(x.data[0].first_name)
+			x.data[0].last_name = capitalizeFirstLetter(x.data[0].last_name)
+			$scope.user = x.data[0]
+			$( ".dropdown-button" ).dropdown( )
+
 		}, err => console.log( err ))
 
-		$scope.logout=function(){
-			console.log('hitting me');
-			$scope.user=undefined
-			mainSrvc.logout().then(x=>location.reload())
+		$scope.logout = function ( ) {
+			console.log( 'hitting me' );
+			$scope.user = undefined
+			mainSrvc.logout( ).then(x => location.reload( ))
 		}
 	}
 ])
