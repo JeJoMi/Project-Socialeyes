@@ -11,4 +11,9 @@ module.exports = {
     })
   }
 
+  // createEvent: (req, res, next) => {
+  //   let {}
+  //   db.createEvent([])
+  // }
+
 }
