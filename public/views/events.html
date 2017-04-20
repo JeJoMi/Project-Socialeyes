@@ -1,4 +1,80 @@
 <div class="container">
+  <div class="row">
+          <div class="card blue medium">
+            <div class="card-image">
+              <img src="assets/user-profile-bg.jpg">
+            </div>
+            <div class="card-content white-text center-align">
+              <h5>Events</h5>
+              <hr></hr>
+              <p>Enter youGet all the information about local Events in your area.</p>
+              <a class="btn-floating btn-large waves-effect waves-light orange" data-target="modal1"><i class="material-icons">search</i></a>
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4 class='underline center-align grey-text text-lighten-1'>Filter</h4>
+                    <hr>
+                    <div class="input-field">
+                        <input type="text" id='filter'>
+                        <label for="filter">Search</label>
+                    </div>
+
+                    <h5 class="grey-text text-lighten-1">filter events by type</h5>
+                    <div class="row">
+                        <p class="col s12 m9 offset-m3">
+                            <input type="checkbox" id="board-games" class="browser-default"/>
+                            <label for="board-games"><i class="fa fa-puzzle-piece fa-lg"></i> Board Games</label>
+                        </p>
+                        <p class="col s12 m9 offset-m3">
+                            <input type="checkbox" id="sports" class="browser-default"/>
+                            <label for="sports"><i class="fa fa-futbol-o fa-lg"></i> Sports</label>
+                        </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+    <div class="card blue">
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a href="#test4">Upcomming Events</a></li>
+        <li class="tab"><a class="active" href="#test5">My Events</a></li>
+      </ul>
+    </div>
+
+    <div class="card-content grey lighten-4">
+      <div id="test4"><ul class="collection">
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">today</i>
+      <span class="title">Lan Par-tay</span>
+      <p>August 15th @ 6pm <br>
+         America's Fancy Bar
+      </p>
+      <a class="btn waves-effect waves-light orange secondary-content" data-target="modal2">Details</a>
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+  </div>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">today</i>
+      <span class="title">Lan Par-tay</span>
+      <p>August 15th @ 6pm <br>
+         America's Fancy Bar
+      </p>
+      <a class="btn waves-effect waves-light orange secondary-content" data-target="modal2">Details</a>
+    </li>
+  </ul>
+</div>
+
+      <div id="test5">Test 2</div>
+    </div>
+  </div>
+
+
+<!--
+  </div>
     <div class="row">
         <div class="col s4 card">
             <h4 class='underline center-align grey-text text-lighten-1'>Filter</h4>
@@ -20,4 +96,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
