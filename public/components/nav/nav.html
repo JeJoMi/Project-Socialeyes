@@ -1,13 +1,20 @@
+<ul id="dropdown1" class="dropdown-content">
+    <li>
+        <h5 class="center-align">With</h5 class=""></li>
+    <li class="divider"></li>
+  <li><a href="/auth/facebook" class="">facebook <i class="fa fa-facebook-square"></i></a></li>
+</ul>
+
 <nav>
-  <div class="nav-wrapper red accent-4">
-    <a href="#" <i class="material-icons">power_settings_new</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a ui-sref='home'>Home</a></li>
-        <li><a ui-sref='events'>Events</a></li>
-        <li><a ui-sref='about'>About</a></li>
-        <li><a>Contact</a></li>
-        <li><a>Login/Join</a></li>
-        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-      </ul>
+    <div class="nav-wrapper red accent-4">
+        <a href="#" <i class="material-icons">power_settings_new</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li ng-show='$ctrl.user'><a ui-sref='home'>Home</a></li>
+            <li><a ui-sref='events'>Events</a></li>
+            <li><a ui-sref='about'>About</a></li>
+            <li><a>Contact</a></li>
+            <li ng-hide='$ctrl.user'><a class='dropdown-button' data-activates='dropdown1'><i class="fa fa-sign-in"></i>Login/Sign Up <i class="fa fa-caret-down"></i></a></li>
+            <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+        </ul>
     </div>
-  </nav>
+</nav>

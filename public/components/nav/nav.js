@@ -1,3 +1,6 @@
 app.component('navbar', {
-  templateUrl: 'components/nav/nav.html'
+  templateUrl: 'components/nav/nav.html',
+  bindings:{
+    user: '='
+  }
 })
