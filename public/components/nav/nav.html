@@ -5,8 +5,8 @@
   <li><a href="/auth/facebook" class="">facebook <i class="fa fa-facebook-square"></i></a></li>
 </ul>
 
-<nav>
-    <div class="nav-wrapper red accent-4">
+<nav class='red accent-4'>
+    <div class="nav-wrapper  container">
         <a href="#" <i class="material-icons">power_settings_new</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li ng-show='$ctrl.user'><a ui-sref='home'>Home</a></li>
@@ -14,7 +14,7 @@
             <li><a ui-sref='about'>About</a></li>
             <li><a>Contact</a></li>
             <li ng-hide='$ctrl.user'><a class='dropdown-button' data-activates='dropdown1'><i class="fa fa-sign-in"></i>Login/Sign Up <i class="fa fa-caret-down"></i></a></li>
-            <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+            <li ng-show='$ctrl.user'><a ><i class="fa fa-bars fa-md"></i></a></li>
         </ul>
     </div>
 </nav>
