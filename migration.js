@@ -21,7 +21,7 @@ massiveMigrate(options, function (err, migrations) {
 
         migrations.runUpMigration({ name: "create-event-" + version}, function(err) {
           if(!err) {
-            console.log('Events table created')
+            console.log('Event table created')
           }
 
           migrations.runUpMigration({ name: "create-eventAttendance-" + version}, function(err) {
@@ -33,6 +33,18 @@ massiveMigrate(options, function (err, migrations) {
 							if(!err) {
 								console.log('Album table created')
 							}
+
+							migrations.runUpMigration({ name: "create-friends-" + version}, function(err) {
+								if(!err) {
+									console.log('Friends table created')
+								}
+
+								migrations.runUpMigration({ name: "create-pending_friends-" + version}, function(err) {
+									if(!err) {
+										console.log('Pending-friends table created')
+									}
+								});
+							});
 						});
           });
         });
