@@ -9,16 +9,12 @@ const postDataRoutes = require('./routes/postDataRoutes');
 const keys = require('./keys');
 
 const aws = require('./s3.js')
-
 const massive = require('massive');
 
 const port = 3000;
 
 const db = require('./db');
-// console.log(db);
-
 const app = express()
-
 const loginCtrl = require('./logic/loginController');
 
 app.use(bodyParser.json())
@@ -37,6 +33,8 @@ app.use('/getDataFrom', getDataRoutes)
 app.use('/postDataTo', postDataRoutes)
 
 app.get('/s3_signed_url', aws.getSignedUrl)
+
+
 
 // ##################################################
 // #################################################
@@ -69,6 +67,8 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 // ##################################################
 // #################################################
 // ##################################################
+
+
 
 
 app.get('*', function(req, res) {
