@@ -19,6 +19,7 @@ app.controller('mainCtrl', [
 			})
 			console.log(x.data[0].newMessages);
 			$scope.user = x.data[0]
+			console.log($scope.user);
 			$( ".dropdown-button" ).dropdown( )
 
 		}, err => console.log( err ))
