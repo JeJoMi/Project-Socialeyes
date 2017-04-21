@@ -9,7 +9,7 @@ app.controller('mainCtrl', [
 
 		angular.element(document).ready(function(){
     $('.modal').modal();
-  });
+  	});
 
 		mainSrvc.getUser( ).then(x => {
 			x.data[0].first_name = capitalizeFirstLetter(x.data[0].first_name)

@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-panel blue">
+                    <span class="card-title white-text"> {{user.first_name}} Photos {{user.last_name}} <i class="fa {{'fa-'+user.gender}}"></i></span>
+                    <div class="col s2 well">
+                        <img ng-hide='user.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
+                        <img ng-show='user.photo' ng-src="{{user.photo}}" alt="" style='max-height:180px;max-width:180px;border-radius:5px' class="card responsive-img z-depth-5">
+                    </div>
+                  </div>
+                <div class="card-content">
+                    <p class='flow-text'>{{user.interests}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="card blue">
+          <div class="card-content white-text">
+            <span class="card-title">Photos</span>
+            <a class="waves-effect waves-light btn orange">Create Album</a>
+            <a class="waves-effect waves-light btn orange">Add Photos</a>
+
+
+              <div class="row">
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+                <div class="col s3">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="http://placehold.it/180x180">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
