@@ -36,13 +36,13 @@
             <div class="card">
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a href="#upcomming-event-slider-view">Upcomming Events</a></li>
-                        <li class="tab"><a href="#my-event-slider-view">My Events</a></li>
+                        <li class="tab"><a ng-click="currentTab = 'upcomingEvents'">Upcomming Events</a></li>
+                        <li class="tab"><a ng-click="currentTab = 'myEvents'">My Events</a></li>
                     </ul>
                 </div>
 
-                <div class="card-content grey lighten-4">
-                    <div id="upcomming-event-slider-view">
+                <div class="grey lighten-4">
+                    <div ng-show="currentTab === 'upcomingEvents' || currentTab ===  undefined">
                         <ul class="collection">
                             <li class="collection-item avatar">
                                 <i class="material-icons circle green">today</i>
@@ -81,7 +81,7 @@
                         </ul>
                     </div>
 
-                    <div id="my-event-slider-view">Test 2</div>
+                    <div ng-show="currentTab === 'myEvents'">Test 2</div>
                 </div>
             </div>
 
