@@ -16,7 +16,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
     .state('events',{
         url:'/events',
-        templateUrl:'../views/events.html'
+        templateUrl:'../views/events.html',
+        controller:'eventsCtrl'
     })
     .state('about',{
         url:'/about',
@@ -43,5 +44,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         url:'/user/:id',
         templateUrl:'../views/user.html',
         controller:'profileCtrl'
+    })
+    .state('fish',{
+        url:'/fish',
+        templateUrl:'../views/fish.html'
     })
 }])
