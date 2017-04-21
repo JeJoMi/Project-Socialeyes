@@ -5,13 +5,11 @@ module.exports = {
           if (req.user) {
             db.getUser([req.user._json.email], (err, users) => {
               db.getEventByUserEmail([users[0].email], (err, event) => {
-                console.log(event);
                 users[0].hostedEvents = event
                 db.getUsersAttendedEvents([users[0].email], (err, attendedEvents) => {
+                  console.log(err,'++++++++++++++', attendedEvents);
                   users[0].events = attendedEvents
-                  console.log(users[0]);
                   db.getMessagesByUserEmail([users[0].email], (err, receivedMessage) => {
-                    console.log(err);
                     users[0].messages = receivedMessage
                     db.getFriends([users[0].email], (err, currentFriends) => {
                       users[0].friends = currentFriends
@@ -25,6 +23,24 @@ module.exports = {
               });
             });
           }
-        }
+        },
 
-}
+        profile: (req, res, next) => {
+          db.getProfileById([req.params.id], (err, user) => {
+            user = user[0]
+            db.getEventByUserEmail([user.email], (err, event) => {
+              user.hostedEvents = event
+              db.getUsersAttendedEvents([user.email], (err, attendedEvents) => {
+                user.events = attendedEvents
+                db.getFriends([user.email], (err, currentFriends) => {
+                  user.friends = currentFriends
+                  db.getPhotosFromAlbum([user.email], (err, currentPhotos) => {
+                    user.photos = currentPhotos
+                    res.send(user)
+                  })
+                });
+              });
+            });
+          });
+        }
+      }
