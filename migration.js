@@ -62,5 +62,4 @@ massiveMigrate(options, function (err, migrations) {
         console.log('Ratings table created')
       }
     });
-
 });
