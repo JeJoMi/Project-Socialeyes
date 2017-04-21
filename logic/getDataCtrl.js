@@ -16,7 +16,11 @@ module.exports = {
                       db.getPhotosFromAlbum([users[0].email], (err, currentPhotos) => {
                         // console.log(err, '++++++++++++++++', currentPhotos);
                         users[0].photos = currentPhotos
-                        res.send(users)
+                        db.getPendingFriends([users[0].email], (err, pendingFriends) => {
+                          console.log(err, '++++++++++++++', pendingFriends);
+                          users[0].newFriends = pendingFriends
+                          res.send(users)
+                        })
                       })
                     });
                   });
@@ -45,5 +49,13 @@ module.exports = {
               });
             });
           });
-        }
+        },
+
+      events: function(req, res, next){
+        console.log("working");
+        db.getEvent((err, currentEvents) => {
+          console.log(err, '=================', currentEvents);
+          res.send(currentEvents)
+        })
       }
+    }
