@@ -1,4 +1,4 @@
 CREATE TABLE IF NOT EXISTS event_attendance(
-  event_id INTEGER references event(id),
+  event_id TEXT,
   user_email TEXT
 );
