@@ -7,16 +7,20 @@ module.exports = {
               db.getEventByUserEmail([users[0].email], (err, event) => {
                 console.log(event);
                 users[0].hostedEvents = event
-                db.getUsersAttendedEvents([users[0].email], (err, attended) => {
-                  users[0].events = attended
+                db.getUsersAttendedEvents([users[0].email], (err, attendedEvents) => {
+                  users[0].events = attendedEvents
                   console.log(users[0]);
-                  db.getMessageByUserEmail([users[0].email], (err, receivedMessage) => {
+                  db.getMessagesByUserEmail([users[0].email], (err, receivedMessage) => {
+                    console.log(err);
                     users[0].messages = receivedMessage
-                    res.send(users)
-                  })
-                })
-              })
-            })
+                    db.getFriends([users[0].email], (err, currentFriends) => {
+                      users[0].friends = currentFriends
+                      res.send(users)
+                    });
+                  });
+                });
+              });
+            });
           }
         }
 
