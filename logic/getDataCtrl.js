@@ -15,7 +15,10 @@ module.exports = {
                     users[0].messages = receivedMessage
                     db.getFriends([users[0].email], (err, currentFriends) => {
                       users[0].friends = currentFriends
-                      res.send(users)
+                      db.getPhotosFromAlbum([users[0].email], (err, currentPhotos) => {
+                        users[0].photos = currentPhotos
+                        res.send(users)
+                      })
                     });
                   });
                 });

@@ -3,5 +3,5 @@ CREATE TABLE IF NOT EXISTS album (
   user_email TEXT,
   description VARCHAR(140),
   photo_url TEXT,
-  posted_date TIMESTAMP WITH TIME ZONE
+  posted_date TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 )
