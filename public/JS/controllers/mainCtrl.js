@@ -14,6 +14,9 @@ app.controller('mainCtrl', [
 		mainSrvc.getUser( ).then(x => {
 			x.data[0].first_name = capitalizeFirstLetter(x.data[0].first_name)
 			x.data[0].last_name = capitalizeFirstLetter(x.data[0].last_name)
+			x.data[0].newMessages = x.data[0].messages.map(x=>{
+				if(!x.read)return x
+			})
 			$scope.user = x.data[0]
 			$( ".dropdown-button" ).dropdown( )
 

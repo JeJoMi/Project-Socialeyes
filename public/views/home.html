@@ -1,4 +1,4 @@
-
+{{user}}
 <div>
     <div class="row">
         <div class="col s12">
@@ -28,7 +28,7 @@
                 <div class="collection">
                     <a class="collection-item"><span class="badge">{{user.events.length}}</span><i class="material-icons">settings_power</i>Events</a>
                     <a class="collection-item"><span class="badge">{{user.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</a>
-                    <a ui-sref='messages' class="collection-item"><span class="new badge red accent-4">{{user.newMessages || 0}}</span><i class="material-icons">email</i>Messages</a>
+                    <a ui-sref='messages' class="collection-item"><span class="new badge red accent-4">{{user.newMessages.length || 0}}</span><i class="material-icons">email</i>Messages</a>
                     <a ui-sref='user_photos' class="collection-item"><span class="badge">{{users.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</a>
                     <a ui-sref='edit_profile' class="collection-item"><i class="material-icons">settings</i>Edit Profile</a>
                 </div>
