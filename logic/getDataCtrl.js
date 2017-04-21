@@ -10,7 +10,10 @@ module.exports = {
                 db.getUsersAttendedEvents([users[0].email], (err, attended) => {
                   users[0].events = attended
                   console.log(users[0]);
-                  res.send(users)
+                  db.getMessageByUserEmail([users[0].email], (err, receivedMessage) => {
+                    users[0].messages = receivedMessage
+                    res.send(users)
+                  })
                 })
               })
             })
