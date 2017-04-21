@@ -17,7 +17,7 @@ app.controller('mainCtrl', [
 			x.data[0].newMessages = x.data[0].messages.filter(f=>{
 				return f.senders_email != x.data[0].email
 			})
-			console.log(x.data[0].newMessages);
+			// console.log(x.data[0].newMessages);
 			$scope.user = x.data[0]
 			$( ".dropdown-button" ).dropdown( )
 
