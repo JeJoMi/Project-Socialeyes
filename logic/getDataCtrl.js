@@ -49,5 +49,13 @@ module.exports = {
               });
             });
           });
-        }
+        },
+
+      events: function(req, res, next){
+        console.log("working");
+        db.getEvent((err, currentEvents) => {
+          console.log(err, '=================', currentEvents);
+          res.send(currentEvents)
+        })
       }
+    }
