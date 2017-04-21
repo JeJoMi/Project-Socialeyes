@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS event (
   event_date TEXT,
   event_name TEXT,
   created_by TEXT,
-  event_types TEXT
+  event_types TEXT,
+  location TEXT
 );
