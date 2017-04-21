@@ -37,7 +37,6 @@ app.get('/s3_signed_url', aws.getSignedUrl)
 
 
 app.get('/logout', function(req,res){
-    console.log('hitting me too');
     logout()
     req.session.destroy()
 })
@@ -52,11 +51,10 @@ passport.use(new FacebookStrategy({
   profileFields: ['id', 'email']
 }, function(token, refreshToken, profile, done) {
   db.createUser([profile._json.email],(err, profile) =>
-  console.log(err, '+++++++++++++++++++++++', profile))
+  console.log(err, 'Facebook strat err'))
   return done(null, profile);
 }));
 passport.serializeUser(function(user, done) {
-  console.log(user, 'serial');
   done(null, user);
 });
 
