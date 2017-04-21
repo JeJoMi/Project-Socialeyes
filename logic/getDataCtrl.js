@@ -26,8 +26,10 @@ module.exports = {
         },
 
         profile: (req, res, next) => {
+          console.log("hitting me");
           db.getProfileById([req.params.id], (err, user) => {
             user = user[0]
+            if(!user) return
             db.getEventByUserEmail([user.email], (err, event) => {
               user.hostedEvents = event
               db.getUsersAttendedEvents([user.email], (err, attendedEvents) => {
