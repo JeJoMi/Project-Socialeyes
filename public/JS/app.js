@@ -39,4 +39,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         url:'/user_photos',
         templateUrl:'../views/userPhotos.html'
     })
+    .state('user',{
+        url:'/user/:id',
+        templateUrl:'../views/user.html',
+        controller:'profileCtrl'
+    })
 }])
