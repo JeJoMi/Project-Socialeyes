@@ -19,7 +19,7 @@
                             <div class="file-field input-field">
                                 <div class="btn red accent-4">
                                     <span>File</span>
-                                    <input type="file" id='userPhoto' onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])">
+                                    <input type="file" id='userPhoto'>
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text">
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="col s6 m3 ">
-                            <img class='responsive-img align-center' id='preview' ng-src="{{user.photo}}" alt="http://placehold.it/200x200">
+                            <img class='responsive-img align-center' id='preview' ng-src="{{user.photo}}" onerror='this.src="http://placehold.it/200x200"'>
                         </div>
 
                         <br>

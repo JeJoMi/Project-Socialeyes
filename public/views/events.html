@@ -1,5 +1,63 @@
 <div class="container">
-    {{currentEvents}}
+    <a data-target='createEvent' class="btn-flat"><i class="material-icons right">add</i>Create Event</a>
+
+    <div id="createEvent" class="modal">
+        <div class="modal-content">
+            <h4 class="center-align">Create event</h4>
+            <div class="input-field">
+                <input id="eventTitle" type="text" class="validate">
+                <label for="eventTitle">Event Title</label>
+            </div>
+            <div class="input-field">
+                <textarea id="description" class="materialize-textarea"></textarea>
+                <label for="description">Description</label>
+            </div>
+
+            <div class="row">
+                <p class="col s3">
+                    <input type="checkbox" id="sports" ng-model='event.sports'/>
+                    <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
+                </p>
+                <p class="col s3">
+                    <input type="checkbox" id="videoGames" ng-model='event.videoGames'/>
+                    <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
+                </p>
+                <p class="col s3">
+                    <input type="checkbox" id="boardGames" ng-model='event.boardGames'/>
+                    <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
+                </p>
+                <p class="col s3">
+                    <input type="checkbox" id="misc" ng-model='event.misc'/>
+                    <label for="misc"><i class="fa fa-child"></i> Misc</label>
+                </p>
+            </div>
+                {{event}}
+            <p class='grey-text'>Only those attending will be able to see the event address.</p>
+            <div class="input-field">
+                <input type="text" id='streetAddress' type="text" class="validate">
+                <label for="streetAddress">Street Address</label>
+            </div>
+            <div class="row">
+                <div class="col s4">
+                    <div class="input-field">
+                        <input type="text" id="zip" value="">
+                        <label for="zip">zip</label>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="input-field">
+                        <input type="text" id="city" value="">
+                        <label for="zip">city</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="card blue medium">
             <div class="card-image">
@@ -38,7 +96,7 @@
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
                         <li class="tab"><a ng-click="currentTab = 'upcomingEvents'">Upcomming Events</a></li>
-                        <li class="tab"><a ng-click="currentTab = 'myEvents'">My Events</a></li>
+                        <li class="tab" ng-show='user'><a ng-click="currentTab = 'myEvents'">My Events</a></li>
                     </ul>
                 </div>
 
