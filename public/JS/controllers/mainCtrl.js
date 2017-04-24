@@ -9,6 +9,8 @@ app.controller('mainCtrl', [
 
 		angular.element(document).ready(function(){
     $('.modal').modal();
+		
+		$('.collapsible').collapsible();
   	});
 
 		mainSrvc.getUser( ).then(x => {

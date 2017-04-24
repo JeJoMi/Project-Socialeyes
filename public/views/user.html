@@ -23,11 +23,86 @@
                 <span class="white-text">{{profile.hostedEvents.length || "No"}} Events Hosted</span>
             </div>
 
-            <div class="collection">
+            <ul class="collapsible" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header"><span class="badge">{{profile.events.length || 0}}</span>
+                  <i class="material-icons">settings_power</i>Events</div>
+                <div class="collapsible-body center-align"><span><a
+                  data-target='createEvent' class="waves-effect waves-light orange btn">Create Event</a></span></div>
+              </li>
+
+              <div id="createEvent" class="modal">
+                  <div class="modal-content">
+                      <h4 class="center-align">Create event</h4>
+                      <div class="input-field">
+                          <input id="eventTitle" type="text" class="validate">
+                          <label for="eventTitle">Event Title</label>
+                      </div>
+                      <div class="input-field">
+                          <textarea id="description" class="materialize-textarea"></textarea>
+                          <label for="description">Description</label>
+                      </div>
+
+                      <div class="row">
+                          <p class="col s3">
+                              <input type="checkbox" id="sports" ng-model='event.sports'/>
+                              <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
+                          </p>
+                          <p class="col s3">
+                              <input type="checkbox" id="videoGames" ng-model='event.videoGames'/>
+                              <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
+                          </p>
+                          <p class="col s3">
+                              <input type="checkbox" id="boardGames" ng-model='event.boardGames'/>
+                              <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
+                          </p>
+                          <p class="col s3">
+                              <input type="checkbox" id="misc" ng-model='event.misc'/>
+                              <label for="misc"><i class="fa fa-child"></i> Misc</label>
+                          </p>
+                      </div>
+                          {{event}}
+                      <p class='grey-text'>Only those attending will be able to see the event address.</p>
+                      <div class="input-field">
+                          <input type="text" id='streetAddress' type="text" class="validate">
+                          <label for="streetAddress">Street Address</label>
+                      </div>
+                      <div class="row">
+                          <div class="col s4">
+                              <div class="input-field">
+                                  <input type="text" id="zip" value="">
+                                  <label for="zip">zip</label>
+                              </div>
+                          </div>
+                          <div class="col s4">
+                              <div class="input-field">
+                                  <input type="text" id="city" value="">
+                                  <label for="zip">city</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <a href="" class="modal-action modal-close waves-effect waves-light orange btn">Create</a>
+                  </div>
+              </div>
+
+              <li>
+                <div class="collapsible-header"><span class="badge">{{profile.friends.length || 0}}</span>
+                  <i class="material-icons">supervisor_account</i>Friends</div>
+                <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn">Add Friends</a></span></div>
+              </li>
+              <li>
+                <div class="collapsible-header"><span class="badge">{{profiles.photos || 0}}</span>
+                  <i class="material-icons">perm_identity</i>Photos</div>
+                <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='profile_photos'>View Photos</a></span></div>
+              </li>
+
+            <!-- <div class="collection">
                 <a class="collection-item"><span class="badge">{{profile.events.length || 0}}</span><i class="material-icons">settings_power</i>Events</a>
                 <a class="collection-item"><span class="badge">{{profile.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</a>
                 <a ui-sref='profile_photos' class="collection-item"><span class="badge">{{profiles.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</a>
-            </div>
+            </div> -->
 
             <ul class="collection with-header">
                 <li class="collection-header">
