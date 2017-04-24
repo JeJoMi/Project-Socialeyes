@@ -42,6 +42,7 @@ module.exports = {
               db.getUsersAttendedEvents([user.email], (err, attendedEvents) => {
                 user.events = attendedEvents
                 db.getFriends([user.email], (err, currentFriends) => {
+                  console.log(err, '================', currentFriends);
                   user.friends = currentFriends
                   db.getPhotosFromAlbum([user.email], (err, currentPhotos) => {
                     user.photos = currentPhotos
