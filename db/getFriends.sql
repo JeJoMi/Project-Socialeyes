@@ -1,4 +1,5 @@
-SELECT *
-FROM friends
-WHERE user1 = $1 or user2 = $1
-;
+select *
+from friends
+join users
+on users.email = friends.user2
+where friends.user1 = $1

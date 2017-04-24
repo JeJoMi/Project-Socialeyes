@@ -1,3 +1,4 @@
+
 <div class="container">
     {{user}}
 
@@ -50,14 +51,14 @@
                       <div class="modal-content">
                           <h4 class="center-align">Create event</h4>
                           <div class="input-field">
-                              <input id="eventTitle" type="text" class="validate">
+                              <input id="eventTitle" type="text" class="validate" ng-model='title'>
                               <label for="eventTitle">Event Title</label>
                           </div>
                           <div class="input-field">
                               <input id="eventDate" type="date" class="datepicker">
                           </div>
                           <div class="input-field">
-                              <textarea id="description" class="materialize-textarea"></textarea>
+                              <textarea id="description" class="materialize-textarea" ng-model='desc'></textarea>
                               <label for="description">Description</label>
                           </div>
 
@@ -79,22 +80,21 @@
                                   <label for="misc"><i class="fa fa-child"></i> Misc</label>
                               </p>
                           </div>
-                              {{event}}
                           <p class='grey-text'>Only those attending will be able to see the event address.</p>
                           <div class="input-field">
-                              <input type="text" id='streetAddress' type="text" class="validate">
+                              <input type="text" id='streetAddress' type="text" class="validate" ng-model='street'>
                               <label for="streetAddress">Street Address</label>
                           </div>
                           <div class="row">
                               <div class="col s4">
                                   <div class="input-field">
-                                      <input type="text" id="zip" value="">
+                                      <input type="text" id="zip" value="" ng-model='zip'>
                                       <label for="zip">zip</label>
                                   </div>
                               </div>
                               <div class="col s4">
                                   <div class="input-field">
-                                      <input type="text" id="city" value="">
+                                      <input type="text" id="city" value="" ng-model='city'>
                                       <label for="zip">city</label>
                                   </div>
                               </div>
@@ -117,7 +117,7 @@
                           </div>
                       </div>
                       <div class="modal-footer">
-                          <a href="" class="modal-action modal-close waves-effect waves-light orange btn">Create</a>
+                          <a href="" class="modal-action modal-close waves-effect waves-light orange btn" ng-click='createEvent(title, desc, event, street, zip, city)'>Create</a>
                       </div>
                   </div>
 
@@ -231,13 +231,13 @@
                                 <div >
                                     <div class="row">
                                         <div class="col s2">
-                                            <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle responsive-img">
+                                            <img ng-src='{{friend.photo}}' onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaqg-Q_HeClNCbhLcmC7qzIbfY7EO1TP2Q5bF74iZPJCdGyUFtJxPwbA';" class="circle responsive-img">
                                         </div>
                                         <div class="col s10">
                                             <div class="black-text">
-                                                <h5>Jane Doe</h5>
+                                                <h5>{{friend.first_name}} {{friend.last_name}}</h5>
                                                 <h6>Posted - 15 August 2017</h6>
-                                                <p>Had too much fun at the game last night!</p>
+                                                <p></p>
                                             </div>
                                         </div>
                                     </div>

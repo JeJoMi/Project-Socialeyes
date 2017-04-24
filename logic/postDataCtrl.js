@@ -9,13 +9,14 @@ module.exports = {
       console.log(profile, err);
       return res.status(200).send(profile)
     })
-  }
+  },
 
-//   createEvent: (req, res, next) => {
-//     let {description, eventDate, eventName, createdBy, eventTypes, location} = req.body
-//     db.createEvent([description, eventDate, eventName, createdBy, eventTypes, location], function(err, createdEvent) {
-//
-// })
-//   }
+  createEvent: (req, res, next) => {
+    let {description, eventDate, eventName, createdBy, eventTypes, location, photo} = req.body
+    db.createEvent([eventDate, eventName, description, createdBy, eventTypes, location, photo], function(err, createdEvent) {
+      console.log(createdEvent, err);
+      return res.status(200).send(createdEvent)
+})
+  }
 
 }

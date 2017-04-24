@@ -8,5 +8,6 @@ CREATE TABLE IF NOT EXISTS event (
   event_types TEXT,
   location TEXT,
   event_limit INTEGER,
-  currrent_attendance INTEGER
+  currrent_attendance INTEGER,
+  photo TEXT
 );

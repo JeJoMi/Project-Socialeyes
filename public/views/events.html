@@ -19,23 +19,23 @@
 
             <div class="row">
                 <p class="col s3">
-                    <input type="checkbox" id="sports" ng-model='event.sports'/>
+                    <input type="checkbox" id="sports" ng-model='event.sports' />
                     <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
                 </p>
                 <p class="col s3">
-                    <input type="checkbox" id="videoGames" ng-model='event.videoGames'/>
+                    <input type="checkbox" id="videoGames" ng-model='event.videoGames' />
                     <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
                 </p>
                 <p class="col s3">
-                    <input type="checkbox" id="boardGames" ng-model='event.boardGames'/>
+                    <input type="checkbox" id="boardGames" ng-model='event.boardGames' />
                     <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
                 </p>
                 <p class="col s3">
-                    <input type="checkbox" id="misc" ng-model='event.misc'/>
+                    <input type="checkbox" id="misc" ng-model='event.misc' />
                     <label for="misc"><i class="fa fa-child"></i> Misc</label>
                 </p>
             </div>
-                {{event}}
+            {{event}}
             <p class='grey-text'>Only those attending will be able to see the event address.</p>
             <div class="input-field">
                 <input type="text" id='streetAddress' type="text" class="validate">
@@ -127,25 +127,25 @@
                                 <span class="title"><!--event name -->{{event.event_name}}</span>
                                 <p>
                                     <!-- event date-->{{event.event_date}}<br>
-                                    <!-- event location -->
+                                    <!-- event location -->{{event.location}}
                                 </p>
 
-                                <a class="btn waves-effect waves-light orange secondary-content" data-target="modal2">Details</a>
-                                <div id="modal2" class="modal">
+                                <a class="btn waves-effect waves-light orange secondary-content" data-target="{{event.id}}">Details</a>
+                                <div id="{{event.id}}" class="modal">
                                     <div class="modal-content">
                                         <h4><!-- event name -->{{event.event_name}}</h4>
                                         <p>
                                             <!-- event date -->{{event.event_date}}</p>
                                         <p>
-                                            <!-- event location -->
+                                            <!-- event location -->{{event.location}}
                                         </p>
                                         <br></br>
                                         <p>
-                                            <!-- event Description -->{{event.description}}</p>
+                                            <!-- event Description -->{{event.description}}
+                                        </p>
                                         <br></br>
                                         <div>
                                             <img src="assets/google-maps-new-interface-small.png">
-                                            <br></br>
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +174,9 @@
                                         </p>
                                         <br></br>
                                         <p>
-                                            <!-- event Description -->{{event.description}}</p>
+                                            <!-- event Description -->{{event.description}}
+                                        </p>
+                                        <button>hello world</button>
                                         <br></br>
                                         <div>
                                             <img src="assets/google-maps-new-interface-small.png">
