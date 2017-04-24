@@ -1,148 +1,191 @@
-<div class="row">
-    <div class="col s12">
-        <div class="card">
-            <div class="card-panel blue">
-                <span class="card-title white-text">Welcome back {{profile.first_name}} {{profile.last_name}} <i class="fa {{'fa-'+profile.gender}}"></i></span>
+<div class="container">
 
-                <div class="col s2 ">
-                    <img ng-hide='profile.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
-                    <img ng-show='profile.photo' ng-src="{{profile.photo}}" alt="" style='max-height:180px;border-radius:5px' class="responsive-img z-depth-5">
-                </div>
-            </div>
-            <div class="card-content ">
-                <p class='flow-text'>{{profile.interests}}</p>
-            </div>
-        </div>
-    </div>
-</div>
+  <!-- ///////////////////////////////////////////// -->
+  <!-- ////// Profile Header! //////////// -->
+  <!-- //////////////////////////////////////////// -->
 
-<div class="row">
-    <div class="col s4">
-        <div class="col s12">
-            <div class="card-panel orange center-align">
-                <span class="white-text">{{profile.hostedEvents.length || "No"}} Events Hosted</span>
-            </div>
-
-            <ul class="collapsible" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header"><span class="badge">{{profile.events.length || 0}}</span>
-                  <i class="material-icons">settings_power</i>Events</div>
-                <div class="collapsible-body center-align"><span><a
-                  data-target='createEvent' class="waves-effect waves-light orange btn">Create Event</a></span></div>
-              </li>
-
-              <div id="createEvent" class="modal">
-                  <div class="modal-content">
-                      <h4 class="center-align">Create event</h4>
-                      <div class="input-field">
-                          <input id="eventTitle" type="text" class="validate">
-                          <label for="eventTitle">Event Title</label>
-                      </div>
-                      <div class="input-field">
-                          <textarea id="description" class="materialize-textarea"></textarea>
-                          <label for="description">Description</label>
-                      </div>
-
-                      <div class="row">
-                          <p class="col s3">
-                              <input type="checkbox" id="sports" ng-model='event.sports'/>
-                              <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
-                          </p>
-                          <p class="col s3">
-                              <input type="checkbox" id="videoGames" ng-model='event.videoGames'/>
-                              <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
-                          </p>
-                          <p class="col s3">
-                              <input type="checkbox" id="boardGames" ng-model='event.boardGames'/>
-                              <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
-                          </p>
-                          <p class="col s3">
-                              <input type="checkbox" id="misc" ng-model='event.misc'/>
-                              <label for="misc"><i class="fa fa-child"></i> Misc</label>
-                          </p>
-                      </div>
-                          {{event}}
-                      <p class='grey-text'>Only those attending will be able to see the event address.</p>
-                      <div class="input-field">
-                          <input type="text" id='streetAddress' type="text" class="validate">
-                          <label for="streetAddress">Street Address</label>
-                      </div>
-                      <div class="row">
-                          <div class="col s4">
-                              <div class="input-field">
-                                  <input type="text" id="zip" value="">
-                                  <label for="zip">zip</label>
-                              </div>
-                          </div>
-                          <div class="col s4">
-                              <div class="input-field">
-                                  <input type="text" id="city" value="">
-                                  <label for="zip">city</label>
-                              </div>
-                          </div>
-                      </div>
+  <div class="row">
+      <div class="col s12">
+          <div class="card">
+              <div class="card-panel blue">
+                  <span class="card-title white-text">Welcome back {{profile.first_name}} {{profile.last_name}} <i class="fa {{'fa-'+profile.gender}}"></i></span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light orange"><i class="material-icons">add</i></a>
+                  <div class="col s2 ">
+                      <img ng-hide='profile.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
+                      <img ng-show='profile.photo' ng-src="{{profile.photo}}" alt="" style='max-height:180px;border-radius:5px' class="responsive-img z-depth-5">
                   </div>
-                  <div class="modal-footer">
-                      <a href="" class="modal-action modal-close waves-effect waves-light orange btn">Create</a>
+              </div>
+              <div class="card-content ">
+                  <p class='flow-text'>{{profile.interests}}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col s4">
+          <div class="col s12">
+
+            <!-- ///////////////////////////////////////////// -->
+            <!-- ////// Events Hosted Box! //////////// -->
+            <!-- //////////////////////////////////////////// -->
+
+              <div class="card-panel orange center-align">
+                  <span class="white-text">{{profile.hostedEvents.length || "No"}} Events Hosted</span>
+              </div>
+
+              <!-- ///////////////////////////////////////////// -->
+              <!-- ////// User Navigation Box! //////////// -->
+              <!-- //////////////////////////////////////////// -->
+
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header"><span class="badge">{{profile.events.length || 0}}</span>
+                    <i class="material-icons">settings_power</i>Events</div>
+                  <div class="collapsible-body center-align"><span><a
+                    data-target='createEvent' class="waves-effect waves-light orange btn">Create Event</a></span></div>
+                </li>
+
+                <div id="createEvent" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center-align">Create event</h4>
+                        <div class="input-field">
+                            <input id="eventTitle" type="text" class="validate">
+                            <label for="eventTitle">Event Title</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea id="description" class="materialize-textarea"></textarea>
+                            <label for="description">Description</label>
+                        </div>
+
+                        <div class="row">
+                            <p class="col s3">
+                                <input type="checkbox" id="sports" ng-model='event.sports'/>
+                                <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
+                            </p>
+                            <p class="col s3">
+                                <input type="checkbox" id="videoGames" ng-model='event.videoGames'/>
+                                <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
+                            </p>
+                            <p class="col s3">
+                                <input type="checkbox" id="boardGames" ng-model='event.boardGames'/>
+                                <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
+                            </p>
+                            <p class="col s3">
+                                <input type="checkbox" id="misc" ng-model='event.misc'/>
+                                <label for="misc"><i class="fa fa-child"></i> Misc</label>
+                            </p>
+                        </div>
+                            {{event}}
+                        <p class='grey-text'>Only those attending will be able to see the event address.</p>
+                        <div class="input-field">
+                            <input type="text" id='streetAddress' type="text" class="validate">
+                            <label for="streetAddress">Street Address</label>
+                        </div>
+                        <div class="row">
+                            <div class="col s4">
+                                <div class="input-field">
+                                    <input type="text" id="zip" value="">
+                                    <label for="zip">zip</label>
+                                </div>
+                            </div>
+                            <div class="col s4">
+                                <div class="input-field">
+                                    <input type="text" id="city" value="">
+                                    <label for="zip">city</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" class="modal-action modal-close waves-effect waves-light orange btn">Create</a>
+                    </div>
+                </div>
+
+                <li>
+                  <div class="collapsible-header"><span class="badge">{{profile.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</div>
+                  <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span></div>
+                </li>
+
+                  <div id="addFriends" class="modal">
+                    <div class="modal-content">
+                      <h4>Friends</h4>
+                      <ul class="collection">
+                         <li class="collection-item avatar">
+                           <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle">
+                           <p>Friend Name Here</p>
+                           <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
+                         </li>
+                         <li class="collection-item avatar">
+                           <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle">
+                           <p>This Gurl Here</p>
+                           <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
+                         </li>
+                       </ul>
+                    </div>
+                </div>
+
+                <li>
+                  <div class="collapsible-header"><span class="badge">{{profiles.photos || 0}}</span>
+                    <i class="material-icons">perm_identity</i>Photos</div>
+                  <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='profile_photos'>View Photos</a></span></div>
+                </li>
+              </ul>
+
+              <!-- <div class="collection">
+                  <a class="collection-item"><span class="badge">{{profile.events.length || 0}}</span><i class="material-icons">settings_power</i>Events</a>
+                  <a class="collection-item"><span class="badge">{{profile.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</a>
+                  <a ui-sref='profile_photos' class="collection-item"><span class="badge">{{profiles.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</a>
+              </div> -->
+
+              <!-- ///////////////////////////////////////////// -->
+              <!-- ////// Upcomming Events //////////// -->
+              <!-- //////////////////////////////////////////// -->
+
+              <ul class="collection with-header">
+                  <li class="collection-header">
+                      <h5>Upcomming Events</h5></li>
+                  <li class="collection-item" ng-repeat='event in profile.events track by $index'>"{{event.event_name}}" {{event.event_date}}</li>
+              </ul>
+          </div>
+      </div>
+
+      <!-- ///////////////////////////////////////////// -->
+      <!-- ////// News feed and events section //////////// -->
+      <!-- //////////////////////////////////////////// -->
+
+      <div class="col s8">
+          <div class="col s12">
+              <div class="card-tabs">
+                  <ul class="tabs tabs-fixed-width">
+                      <li class="tab"><a href="#recent-event-slider-view">Recent Events</a></li>
+                      <li class="tab"><a href="#news-feed-slider-view">News Feed</a></li>
+                  </ul>
+              </div>
+              <div class="card">
+                  <div class="card-content">
+                      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  </div>
+
+                  <div class="card-content grey lighten-4">
+                      <div id="recent-event-slider-view">You don't have any recent events</div>
+                      <div id="add-photo-slider-view">Add photos from any recent events</div>
+                      <div id="news-feed-slider-view">You don't have any recent news</div>
                   </div>
               </div>
 
-              <li>
-                <div class="collapsible-header"><span class="badge">{{profile.friends.length || 0}}</span>
-                  <i class="material-icons">supervisor_account</i>Friends</div>
-                <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn">Add Friends</a></span></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><span class="badge">{{profiles.photos || 0}}</span>
-                  <i class="material-icons">perm_identity</i>Photos</div>
-                <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='profile_photos'>View Photos</a></span></div>
-              </li>
+              <div class="card">
+                  <div class="card-image">
 
-            <!-- <div class="collection">
-                <a class="collection-item"><span class="badge">{{profile.events.length || 0}}</span><i class="material-icons">settings_power</i>Events</a>
-                <a class="collection-item"><span class="badge">{{profile.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</a>
-                <a ui-sref='profile_photos' class="collection-item"><span class="badge">{{profiles.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</a>
-            </div> -->
-
-            <ul class="collection with-header">
-                <li class="collection-header">
-                    <h5>Upcomming Events</h5></li>
-                <li class="collection-item" ng-repeat='event in profile.events track by $index'>"{{event.event_name}}" {{event.event_date}}</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="col s8">
-        <div class="col s12">
-            <div class="card-tabs">
-                <ul class="tabs tabs-fixed-width">
-                    <li class="tab"><a href="#recent-event-slider-view">Recent Events</a></li>
-                    <li class="tab"><a href="#news-feed-slider-view">News Feed</a></li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                </div>
-
-                <div class="card-content grey lighten-4">
-                    <div id="recent-event-slider-view">You don't have any recent events</div>
-                    <div id="add-photo-slider-view">Add photos from any recent events</div>
-                    <div id="news-feed-slider-view">You don't have any recent news</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image">
-
-                </div>
-                <div class="card-content">
-                    <p>Find me in this map, because I'm not giving you the address, jerk...</p>
-                </div>
-                <div class="card-action">
-                    <a>Comment</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                  </div>
+                  <div class="card-content">
+                      <p>Find me in this map, because I'm not giving you the address, jerk...</p>
+                  </div>
+                  <div class="card-action">
+                      <a>Comment</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
