@@ -12,7 +12,9 @@ module.exports = {
                   db.getMessagesByUserEmail([users[0].email], (err, receivedMessage) => {
                     users[0].messages = receivedMessage
                     db.getFriends([users[0].email], (err, currentFriends) => {
+                        
                       users[0].friends = currentFriends
+
                       db.getPhotosFromAlbum([users[0].email], (err, currentPhotos) => {
                         // console.log(err, '++++++++++++++++', currentPhotos);
                         users[0].photos = currentPhotos
