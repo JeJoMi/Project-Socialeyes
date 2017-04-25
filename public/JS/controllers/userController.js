@@ -3,7 +3,7 @@ app.controller('userController', [
 	'$location',
 	'userService',
 	function ( $scope,$location, userService ) {
-		
+
 		// NOTE: will handle user uploaded photos through amazon s3
 		$scope.upload = function ( id ) {
 			console.log('hitting me');
@@ -32,6 +32,13 @@ app.controller('userController', [
 			}, err => {
 				console.log( err );
 			})
+		}
+		$scope.createEvent = function (title, desc, type, street, zip, city, user, date) {
+			let photo = document.getElementById('preview').src
+			let obj = {
+				title, desc, type, address:`${street}&${zip}&${city}`, photo, user, date
+			}
+			console.log(obj);
 		}
 	}
 ])

@@ -1,0 +1,78 @@
+<div id="createEvent" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Create event</h4>
+        <div class="input-field">
+            <input id="eventTitle" type="text" class="validate" ng-model='title'>
+            <label for="eventTitle">Event Title</label>
+        </div>
+        <div class="input-field">
+            <input id="eventDate" type="date" class="datepicker" ng-model='date'>
+        </div>
+        <div class="input-field">
+            <textarea id="description" class="materialize-textarea" ng-model='desc'></textarea>
+            <label for="description">Description</label>
+        </div>
+
+        <div class="row">
+            {{event}}
+            <p class="col s3">
+                <input type="radio" id="sports" value='sports' name='group1' ng-model='event' />
+                <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
+            </p>
+            <p class="col s3">
+                <input type="radio" id="videoGames" value='video games' name='group1' ng-model='event' />
+                <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
+            </p>
+            <p class="col s3">
+                <input type="radio" id="boardGames" value='board games' name='group1' ng-model='event' />
+                <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
+            </p>
+            <p class="col s3">
+                <input type="radio" id="misc" value='misc' name='group1' ng-model='event' />
+                <label for="misc"><i class="fa fa-child"></i> Misc</label>
+            </p>
+        </div>
+        <p class='grey-text'>Only those attending will be able to see the event address.</p>
+        <div class="input-field">
+            <input type="text" id='streetAddress' type="text" class="validate" ng-model='street'>
+            <label for="streetAddress">Street Address</label>
+        </div>
+        <div class="row">
+            <div class="col s4">
+                <div class="input-field">
+                    <input type="text" id="zip" value="" ng-model='zip'>
+                    <label for="zip">zip</label>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="input-field">
+                    <input type="text" id="city" value="" ng-model='city'>
+                    <label for="zip">city</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <p class='grey-text'>Upload a Picture File</p>
+                <form action="#">
+                    <div class="file-field input-field">
+                        <div class="waves-effect waves-light blue btn">
+                            <span>Select</span>
+                            <input type="file" id='eventPhoto'>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                        <a class="btn green" ng-click='$ctrl.upload({id:"eventPhoto"})'>Upload</a>
+                    </div>
+                </form>
+            </div>
+            <div class="col s6">
+                <img src="" alt="" id='preview' class="responsive-img" onerror='this.src="http://fazer.ucam-campos.br/repositorio/img/icons/fa-users.png"'>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="" class="modal-action modal-close waves-effect waves-light orange btn" ng-click='$ctrl.createEvent({title, desc, event, street, zip, city, user:$ctrl.user.email, date})'>Create</a>
+    </div>
+</div>
