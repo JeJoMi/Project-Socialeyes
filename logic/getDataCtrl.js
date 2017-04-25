@@ -12,7 +12,7 @@ module.exports = {
                   db.getMessagesByUserEmail([users[0].email], (err, receivedMessage) => {
                     users[0].messages = receivedMessage
                     db.getFriends([users[0].email], (err, currentFriends) => {
-                        
+
                       users[0].friends = currentFriends
 
                       db.getPhotosFromAlbum([users[0].email], (err, currentPhotos) => {
@@ -59,6 +59,13 @@ module.exports = {
         db.getEvent((err, currentEvents) => {
           console.log(err, '=================', currentEvents);
           res.send(currentEvents)
+        })
+      },
+
+      userEvents: function(req, res, next) {
+        db.getEventsForUser((err, events) => {
+          console.log(err, events);
+          res.send(events)
         })
       }
     }
