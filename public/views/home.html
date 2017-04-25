@@ -1,5 +1,4 @@
 <div class="container">
-
     <!-- ///////////////////////////////////////////// -->
     <!-- ////// Profile Header! //////////// -->
     <!-- //////////////////////////////////////////// -->
@@ -58,10 +57,13 @@
                         <div class="modal-content">
                             <h4>Friends</h4>
                             <ul class="collection">
-                                <li class="collection-item avatar">
-                                    <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle">
-                                    <p>Friend Name Here</p>
+                                <li class="collection-item avatar" ng-repeat='friend in user.friends'>
+                                    <img ng-src="{{friend.photo}}" alt="" class="circle" onerror="this.src='https://cdn3.iconfinder.com/data/icons/black-easy/512/535106-user_512x512.png'">
+                                    <p>{{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}}</p>
                                     <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
+                                </li>
+                                <li class="collection-item avatar" ng-repeat='pending in user.pending'>
+                                    <p</p>
                                 </li>
                             </ul>
                         </div>
@@ -72,10 +74,10 @@
                         <div class="collapsible-header"><span class="new badge red accent-4">{{user.newMessages.length || 0}}</span><i class="material-icons">email</i>Messages</div>
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='messages'>View Messages</a></span></div>
                     </li>
-                    <li>
+                    <!-- <li>
                         <div class="collapsible-header"><span class="badge">{{users.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</div>
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='user_photos'>View Photos</a></span></div>
-                    </li>
+                    </li> -->
                     <li>
                         <div class="collapsible-header"><i class="material-icons">settings</i>Edit Profile</div>
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='edit_profile'>Edit Profile</a></span></div>
@@ -126,7 +128,7 @@
                                         <div class="modal-content">
                                             <h4>{{event.event_name}}</h4>
                                             <p>{{event.event_date}}</p>
-                                            <p>{{event.location.split('&').pop()}}</p>
+                                            <p>{{event.location.replace('&', ', ').replace('&', ', ')}}</p>
                                             <br></br>
                                             <p>
                                                 {{event.description}}
