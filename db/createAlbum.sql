@@ -1,2 +1,4 @@
-INSERT INTO album (description, photo_url)
-VALUES ($1, $2)
+INSERT INTO album (user_email, description, photo_url)
+VALUES ($1, $2, $3)
+RETURNING *
+;

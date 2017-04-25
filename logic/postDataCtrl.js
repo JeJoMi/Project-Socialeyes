@@ -46,14 +46,42 @@ module.exports = {
       address,
       photo
     ], function(err, createdEvent) {
-      console.log(createdEvent, err);
+      // console.log(createdEvent, err);
       db.addEventAttendance([createdEvent[0].id, user], function(err, attendance) {
-        console.log(err, '############', attendance);
+        // console.log(err, '############', attendance);
       })
     })
   },
+
+  createNewMessage: (req, res, next) => {
+    let {
+      sender,
+      receiver,
+      message
+    } = req.body
+    db.createMessage([sender, receiver, message], function(err, newMessage) {
+      // console.log(err, '$$$$$$$$$$$$', newMessage);
+      res.send(newMessage)
+    })
+  },
+
   // createAlbum: (req, res, next) => {
-  //
-  // }
+  //   let {
+  //     userEmail,
+  //     description,
+  //     photoUrl
+  //   } = req.body
+  //   db.createAlbum([userEmail, description, photoUrl], function(err, newAlbum) {
+  //     console.log(err, '@@@@@@@@@@@', newAlbum);
+  //     res.send(newAlbum)
+  //   })
+  // },
+
+  addFriend: (req, res, next) => {
+    db.addFriend([req.body.sender, req.body.receiver], function(err, newFriend) {
+      console.log(err, newFriend);
+      res.send(newFriend)
+    })
+  }
 
 }
