@@ -23,7 +23,7 @@ app.controller('mainCtrl', [
 			x.data[0].newMessages = x.data[0].messages.filter(f => {
 				return f.senders_email != x.data[0].email
 			})
-			x.data[0].events.map(x=>x.event_date = moment(x.event_date).format('MMM Do YYYY'))
+			x.data[0].events.map(x=>x.event_date = moment(x.event_date).format('ddd MMM Do YYYY'))
 			// console.log(x.data[0].newMessages);
 			$scope.user = x.data[0]
 			console.log( $scope.user );
