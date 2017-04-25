@@ -39,6 +39,7 @@ app.controller('userController', [
 				title, desc, type, address:`${street}&${zip}&${city}`, photo, user, date
 			}
 			console.log(obj);
+			userService.createEvent(obj);
 		}
 	}
 ])
