@@ -3,12 +3,18 @@ app.controller('profileCtrl', [
 	'$state',
 	'profileSrvc',
 	function ( $scope, $state, profileSrvc ) {
-
+		angular.element(document).ready(function(){
+			$('.tooltipped').tooltip({delay: 50});
+		})
 		profileSrvc.getProfile( $state.params.id ).then(x => {
-			console.log( x );
+			x.data.events.map(x=>x.event_date = moment(x.event_date).format('ddd MMM Do YYYY'))
 			$scope.profile = x.data
 		}, err => console.log( err ))
 
+		$scope.addFriend=function(reciever, sender){
+			let obj = {sender, reciever}
+			profileSrvc.addFriend(obj)
+		}
 
 
 	}
