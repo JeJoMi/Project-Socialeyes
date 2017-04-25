@@ -1,6 +1,4 @@
-
 <div class="container">
-    {{user}}
 
     <!-- ///////////////////////////////////////////// -->
     <!-- ////// Profile Header! //////////// -->
@@ -11,7 +9,7 @@
             <div class="card">
                 <div class="card-panel blue">
                     <span class="card-title white-text">Welcome back {{user.first_name}} {{user.last_name}} <i class="fa {{'fa-'+user.gender}}"></i></span>
-                    <div class="col s2 ">
+                    <div class="col m2 s4 ">
                         <img ng-hide='user.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
                         <img ng-show='user.photo' ng-src="{{user.photo}}" alt="" style='max-height:180px;border-radius:5px' class="responsive-img z-depth-5">
                     </div>
@@ -28,9 +26,9 @@
         <div class="col s4">
             <div class="col s12">
 
-              <!-- ///////////////////////////////////////////// -->
-              <!-- ////// Events Hosted Box! //////////// -->
-              <!-- //////////////////////////////////////////// -->
+                <!-- ///////////////////////////////////////////// -->
+                <!-- ////// Events Hosted Box! //////////// -->
+                <!-- //////////////////////////////////////////// -->
 
                 <div class="card-panel orange center-align">
                     <span class="white-text">{{user.hostedEvents.length}} Events Hosted</span>
@@ -41,127 +39,54 @@
                 <!-- //////////////////////////////////////////// -->
 
                 <ul class="collapsible" data-collapsible="accordion">
-                  <li>
-                    <div class="collapsible-header"><span class="badge">{{user.events.length || 0}}</span><i class="material-icons">settings_power</i>Events</div>
-                    <div class="collapsible-body center-align"><span><a
+                    <li>
+                        <div class="collapsible-header"><span class="badge">{{user.events.length || 0}}</span><i class="material-icons">settings_power</i>Events</div>
+                        <div class="collapsible-body center-align"><span><a
                       data-target='createEvent' class="waves-effect waves-light orange btn">Create Event</a></span></div>
-                  </li>
+                    </li>
+                    <!-- ////////////////////////// -->
+                    <!-- event modal  -->
+                    <!-- ////////////////////////// -->
 
-                  <div id="createEvent" class="modal">
-                      <div class="modal-content">
-                          <h4 class="center-align">Create event</h4>
-                          <div class="input-field">
-                              <input id="eventTitle" type="text" class="validate" ng-model='title'>
-                              <label for="eventTitle">Event Title</label>
-                          </div>
-                          <div class="input-field">
-                              <input id="eventDate" type="date" class="datepicker">
-                          </div>
-                          <div class="input-field">
-                              <textarea id="description" class="materialize-textarea" ng-model='desc'></textarea>
-                              <label for="description">Description</label>
-                          </div>
+                    <event-modal upload='upload(id)' create-event='createEvent(title, desc, type, street, zip, city, user, date)' user='user'></event-modal>
 
-                          <div class="row">
-                              <p class="col s3">
-                                  <input type="checkbox" id="sports" ng-model='event.sports'/>
-                                  <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
-                              </p>
-                              <p class="col s3">
-                                  <input type="checkbox" id="videoGames" ng-model='event.videoGames'/>
-                                  <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
-                              </p>
-                              <p class="col s3">
-                                  <input type="checkbox" id="boardGames" ng-model='event.boardGames'/>
-                                  <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
-                              </p>
-                              <p class="col s3">
-                                  <input type="checkbox" id="misc" ng-model='event.misc'/>
-                                  <label for="misc"><i class="fa fa-child"></i> Misc</label>
-                              </p>
-                          </div>
-                          <p class='grey-text'>Only those attending will be able to see the event address.</p>
-                          <div class="input-field">
-                              <input type="text" id='streetAddress' type="text" class="validate" ng-model='street'>
-                              <label for="streetAddress">Street Address</label>
-                          </div>
-                          <div class="row">
-                              <div class="col s4">
-                                  <div class="input-field">
-                                      <input type="text" id="zip" value="" ng-model='zip'>
-                                      <label for="zip">zip</label>
-                                  </div>
-                              </div>
-                              <div class="col s4">
-                                  <div class="input-field">
-                                      <input type="text" id="city" value="" ng-model='city'>
-                                      <label for="zip">city</label>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                            <div class="col s4">
-                              <p class='grey-text'>Upload a Picture File</p>
-                              <form action="#">
-                                  <div class="file-field input-field">
-                                    <div class="waves-effect waves-light blue btn">
-                                      <span>Browse</span>
-                                      <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                      <input class="file-path validate" type="text">
-                                    </div>
-                                  </div>
-                                </form>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                          <a href="" class="modal-action modal-close waves-effect waves-light orange btn" ng-click='createEvent(title, desc, event, street, zip, city)'>Create</a>
-                      </div>
-                  </div>
 
-                  <li>
-                    <div class="collapsible-header"><span class="badge">{{user.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</div>
-                    <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span></div>
-                  </li>
+                    <li>
+                        <div class="collapsible-header"><span class="badge">{{user.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</div>
+                        <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span></div>
+                    </li>
 
                     <div id="addFriends" class="modal">
-                      <div class="modal-content">
-                        <h4>Friends</h4>
-                        <ul class="collection">
-                           <li class="collection-item avatar">
-                             <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle">
-                             <p>Friend Name Here</p>
-                             <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
-                           </li>
-                           <li class="collection-item avatar">
-                             <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle">
-                             <p>This Gurl Here</p>
-                             <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
-                           </li>
-                         </ul>
-                      </div>
-                  </div>
+                        <div class="modal-content">
+                            <h4>Friends</h4>
+                            <ul class="collection">
+                                <li class="collection-item avatar">
+                                    <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle">
+                                    <p>Friend Name Here</p>
+                                    <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
 
-                  <li>
-                    <div class="collapsible-header"><span class="new badge red accent-4">{{user.newMessages.length || 0}}</span><i class="material-icons">email</i>Messages</div>
-                    <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='messages'>View Messages</a></span></div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header"><span class="badge">{{users.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</div>
-                    <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='user_photos'>View Photos</a></span></div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header"><i class="material-icons">settings</i>Edit Profile</div>
-                    <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='edit_profile'>Edit Profile</a></span></div>
-                  </li>
+                    <li>
+                        <div class="collapsible-header"><span class="new badge red accent-4">{{user.newMessages.length || 0}}</span><i class="material-icons">email</i>Messages</div>
+                        <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='messages'>View Messages</a></span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><span class="badge">{{users.photos || 0}}</span><i class="material-icons">perm_identity</i>Photos</div>
+                        <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='user_photos'>View Photos</a></span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">settings</i>Edit Profile</div>
+                        <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='edit_profile'>Edit Profile</a></span></div>
+                    </li>
                 </ul>
 
-                  <!-- ///////////////////////////////////////////// -->
-                  <!-- ////// Upcomming Events //////////// -->
-                  <!-- //////////////////////////////////////////// -->
+                <!-- ///////////////////////////////////////////// -->
+                <!-- ////// Upcomming Events //////////// -->
+                <!-- //////////////////////////////////////////// -->
 
                 <ul class="collection with-header">
                     <li class="collection-header">
@@ -228,7 +153,7 @@
                         <div ng-show="currentTab === 'newsFeed' || currentTab ===  undefined">
 
                             <div class="card-panel grey lighten-5 z-depth-1" ng-repeat='friend in user.friends'>
-                                <div >
+                                <div>
                                     <div class="row">
                                         <div class="col s2">
                                             <img ng-src='{{friend.photo}}' onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaqg-Q_HeClNCbhLcmC7qzIbfY7EO1TP2Q5bF74iZPJCdGyUFtJxPwbA';" class="circle responsive-img">
@@ -246,26 +171,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="card-panel grey lighten-5 z-depth-1">
-                            <div class="row">
-                              <div class="col s2">
-                                <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle responsive-img">
-                              </div>
-                              <div class="col s10">
-                                <div class="black-text">
-                                  <h5>Jane Doe</h5>
-                                  <h6>Posted - 15 August 2017</h6>
-                                  <p>Had too much fun at the game last night!</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card-image">
-                              <img src="assets/google-maps-new-interface-small.png">
-                            </div>
-                            <div class="card-action">
-                                <a>Comment</a>
-                            </div>
-                        </div> -->
                         </div>
                     </div>
                 </div>

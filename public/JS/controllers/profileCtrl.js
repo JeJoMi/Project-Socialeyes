@@ -9,5 +9,7 @@ app.controller('profileCtrl', [
 			$scope.profile = x.data
 		}, err => console.log( err ))
 
+
+
 	}
 ])
