@@ -40,6 +40,13 @@ app.controller('userController', [
 			}
 			console.log(obj);
 			userService.createEvent(obj);
+			location.reload()
 		}
+		userService.getEvents().then(response=>{
+			response.data.reverse()
+			response.data.map(x=>x.created_at = moment(x.created_at).format('MMM Do YYYY'))
+			response.data.map(x=>x.event_date = moment(x.event_date).format('MMM Do YYYY'))
+			$scope.events = response.data
+		})
 	}
 ])
