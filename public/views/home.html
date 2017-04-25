@@ -3,7 +3,6 @@
     <!-- ///////////////////////////////////////////// -->
     <!-- ////// Profile Header! //////////// -->
     <!-- //////////////////////////////////////////// -->
-
     <div class="row">
         <div class="col s12">
             <div class="card">
@@ -45,9 +44,8 @@
                       data-target='createEvent' class="waves-effect waves-light orange btn">Create Event</a></span></div>
                     </li>
                     <!-- ////////////////////////// -->
-                    <!-- event modal  -->
+                    <!-- ////// event modal /////// -->
                     <!-- ////////////////////////// -->
-
                     <event-modal upload='upload(id)' create-event='createEvent(title, desc, type, street, zip, city, user, date)' user='user'></event-modal>
 
 
@@ -91,7 +89,7 @@
                 <ul class="collection with-header">
                     <li class="collection-header">
                         <h5>Upcomming Events</h5></li>
-                    <li class="collection-item" ng-repeat='event in user.events track by $index'>"{{event.event_name}}" {{event.event_date}}</li>
+                    <li class="collection-item" ng-repeat='event in user.events track by $index'><p>"{{event.event_name}}"</p> <p>{{event.event_date}}</p></li>
                 </ul>
             </div>
         </div>
@@ -104,72 +102,66 @@
             <div class="col s12">
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a ng-click="currentTab = 'newsFeed'">News Feed</a></li>
+                        <li class="tab"><a ng-click="currentTab = 'newsFeed'">New Events</a></li>
                         <li class="tab"><a ng-click="currentTab = 'recentEvents'">Events</a></li>
                     </ul>
                 </div>
-
                 <div class="card">
                     <div class="card-content grey lighten-4">
                         <div ng-show="currentTab === 'recentEvents'">
+
+
                             <ul class="collection">
-                                <li class="collection-item avatar">
-                                    <i class="material-icons circle green">today</i>
-                                    <span class="title">Lan Par-tay</span>
-                                    <p>August 15th @ 6pm <br> America's Fancy Bar
+                                <li class="collection-item avatar" ng-repeat='event in user.events'>
+                                    <i class="fa fa-child circle green" ng-show='event.event_types.includes("misc")'></i>
+                                    <i class="fa fa-futbol-o circle blue" ng-show='event.event_types.includes("sport")'></i>
+                                    <i class="fa fa-gamepad circle purple" ng-show='event.event_types.includes("video")'></i>
+                                    <i class="fa fa-puzzle-piece circle red" ng-show='event.event_types.includes("misc")'></i>
+                                    <span class="title">{{event.event_name}}</span>
+                                    <p>{{event.event_date}} <br> {{event.location.split('&').pop()}}
                                     </p>
 
-                                    <a class="btn waves-effect waves-light orange secondary-content" data-target="modal2">Details</a>
-                                    <div id="modal2" class="modal">
+                                    <a class="btn waves-effect waves-light orange secondary-content" data-target="{{event.id}}">Details</a>
+                                    <div id="{{event.id}}" class="modal">
                                         <div class="modal-content">
-                                            <h4>Lan Par-tay</h4>
-                                            <p>August 15th @ 6pm</p>
-                                            <p>America's Fancy Bar</p>
+                                            <h4>{{event.event_name}}</h4>
+                                            <p>{{event.event_date}}</p>
+                                            <p>{{event.location.split('&').pop()}}</p>
                                             <br></br>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet elit eu tortor semper, in blandit tortor rhoncus. Sed accumsan varius nisi faucibus porttitor. Proin blandit tellus mauris, sagittis facilisis
-                                                metus tincidunt in. Morbi vitae ornare nisl, id pharetra turpis. Morbi sit amet facilisis diam, id cursus eros. Duis tincidunt placerat dui et convallis. Nullam nunc mauris, convallis sit amet dolor quis,
-                                                semper molestie tellus. Proin porttitor vehicula arcu, vitae vestibulum libero auctor ac. Phasellus suscipit massa at congue mattis. Aenean cursus fringilla eleifend. Integer vitae magna et tellus congue
-                                                molestie. Donec iaculis, nisl eget aliquet volutpat, turpis enim dignissim erat, vitae tincidunt nisi lacus eu eros.</p>
+                                            <p>
+                                                {{event.description}}
+                                            </p>
                                             <br></br>
                                             <div>
                                                 <img src="assets/google-maps-new-interface-small.png">
                                                 <br></br>
-                                                <a class="modal-action modal-close waves-effect waves-green btn orange">RSVP</a>
                                             </div>
                                         </div>
                                     </div>
-
-                                </li>
-                                <li class="collection-item avatar">
-                                    <i class="material-icons circle">today</i>
-                                    <span class="title">Lan Par-tay</span>
-                                    <p>August 15th @ 6pm <br> America's Fancy Bar
-                                    </p>
-                                    <a class="btn waves-effect waves-light orange secondary-content" data-target="modal2">Details</a>
                                 </li>
                             </ul>
                         </div>
 
                         <div ng-show="currentTab === 'newsFeed' || currentTab ===  undefined">
 
-                            <div class="card-panel grey lighten-5 z-depth-1" ng-repeat='friend in user.friends'>
-                                <div>
-                                    <div class="row">
-                                        <div class="col s2">
-                                            <img ng-src='{{friend.photo}}' onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaqg-Q_HeClNCbhLcmC7qzIbfY7EO1TP2Q5bF74iZPJCdGyUFtJxPwbA';" class="circle responsive-img">
-                                        </div>
-                                        <div class="col s10">
-                                            <div class="black-text">
-                                                <h5>{{friend.first_name}} {{friend.last_name}}</h5>
-                                                <h6>Posted - 15 August 2017</h6>
-                                                <p></p>
+                            <div class="card-panel grey lighten-5 z-depth-1" ng-repeat='event in events'>
+                                <a>
+                                    <div class='event-hover'>
+                                        <div class="row">
+                                            <div class="col s2">
+                                                <img ng-src='{{event.photo}}' class=" responsive-img" onerror="this.src='http://fazer.ucam-campos.br/repositorio/img/icons/fa-users.png'">
+                                            </div>
+                                            <div class="col s10">
+                                                <div class="black-text">
+                                                    <h5>{{event.event_name}}</h5>
+                                                    <h6>Posted - {{event.created_at}}</h6>
+                                                    <p>Event Date - {{event.event_date}}</p>
+                                                    <p>Location - {{event.location.split('&').pop()}}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-action">
-                                        <a>Comment</a>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>

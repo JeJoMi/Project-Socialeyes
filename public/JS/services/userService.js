@@ -50,5 +50,9 @@ app.service('userService', [
 		this.createEvent = function(obj) {
 			$http.post('/postDataTo/events', obj)
 		}
+
+		this.getEvents = function(){
+			return $http.get('/getDataFrom/user_events')
+		}
 	}
 ])
