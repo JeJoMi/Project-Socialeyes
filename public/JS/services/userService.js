@@ -46,5 +46,9 @@ app.service('userService', [
 			};
 			xhr.send( file );
 		}
+
+		this.createEvent = function(obj) {
+			$http.post('/postDataTo/events', obj)
+		}
 	}
 ])

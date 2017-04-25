@@ -12,11 +12,16 @@ module.exports = {
   },
 
   createEvent: (req, res, next) => {
-    let {description, eventDate, eventName, createdBy, eventTypes, location, photo} = req.body
-    db.createEvent([eventDate, eventName, description, createdBy, eventTypes, location, photo], function(err, createdEvent) {
+    console.log(req.body);
+    let {date, title, desc, user, type, address, photo} = req.body
+    db.createEvent([date, title, desc, user, type, address, photo], function(err, createdEvent) {
       console.log(createdEvent, err);
       return res.status(200).send(createdEvent)
 })
-  }
+  },
+
+  // createAlbum: (req, res, next) => {
+  //
+  // }
 
 }
