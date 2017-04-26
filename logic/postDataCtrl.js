@@ -62,17 +62,25 @@ module.exports = {
 		})
 	},
 
-	// createAlbum: (req, res, next) => {
-	//   let {
-	//     userEmail,
-	//     description,
-	//     photoUrl
-	//   } = req.body
-	//   db.createAlbum([userEmail, description, photoUrl], function(err, newAlbum) {
-	//     console.log(err, '@@@@@@@@@@@', newAlbum);
-	//     res.send(newAlbum)
-	//   })
-	// },
+  // createAlbum: (req, res, next) => {
+  //   let {
+  //     userEmail,
+  //     description,
+  //     photoUrl
+  //   } = req.body
+  //   db.createAlbum([userEmail, description, photoUrl], function(err, newAlbum) {
+  //     console.log(err, '@@@@@@@@@@@', newAlbum);
+  //     res.send(newAlbum)
+  //   })
+  // },
+
+  addFriend: (req, res, next) => {
+    db.addFriend([req.body.sender, req.body.receiver], function(err, newFriend) {
+      // console.log(err, newFriend);
+      res.send(newFriend)
+    })
+  }
+
 
 	addFriend: ( req, res, next ) => {
         console.log(req.body);
