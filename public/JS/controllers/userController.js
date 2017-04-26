@@ -48,5 +48,9 @@ app.controller('userController', [
 			response.data.map(x=>x.event_date = moment(x.event_date).format('MMM Do YYYY'))
 			$scope.events = response.data
 		})
+		$scope.acceptFriend = function(inviter, invited){
+			let obj = {inviter, invited}
+			userService.acceptFriend(obj).then(x=>console.log(x),err=>console.log(err))
+		}
 	}
 ])

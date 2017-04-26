@@ -2,6 +2,7 @@
     <!-- ///////////////////////////////////////////// -->
     <!-- ////// Profile Header! //////////// -->
     <!-- //////////////////////////////////////////// -->
+    {{user.newFriends}}
     <div class="row">
         <div class="col s12">
             <div class="card">
@@ -49,7 +50,7 @@
 
 
                     <li>
-                        <div class="collapsible-header"><span class="badge">{{user.friends.length || 0}}</span><i class="material-icons">supervisor_account</i>Friends</div>
+                        <div class="collapsible-header"><span class="badge">{{user.friends.length || 0}}</span><span ng-show='user.newFriends' class="new badge red accent-4">{{user.newFriends.length}}</span><i class="material-icons">supervisor_account</i>Friends</div>
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span></div>
                     </li>
 
@@ -58,12 +59,17 @@
                             <h4>Friends</h4>
                             <ul class="collection">
                                 <li class="collection-item avatar" ng-repeat='friend in user.friends'>
-                                    <img ng-src="{{friend.photo}}" alt="" class="circle" onerror="this.src='https://cdn3.iconfinder.com/data/icons/black-easy/512/535106-user_512x512.png'">
-                                    <p>{{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}}</p>
+                                    <img ng-src="{{friend.photo}}" alt="" class="responsive-img circle" onerror="this.src='https://cdn3.iconfinder.com/data/icons/black-easy/512/535106-user_512x512.png'">
+                                    <a ui-sref='user({id:friend.id})'><p>{{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}}</p></a>
                                     <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
                                 </li>
-                                <li class="collection-item avatar" ng-repeat='pending in user.pending'>
-                                    <p</p>
+                                <li class="collection-item avatar" ng-repeat='friend in user.newFriends'>
+                                    <img ng-src="{{friend.photo}}" class='responsive-img circle'alt="" onerror="this.src='http://workshop.barcelona.pm/barcelona2016/img/default-avatar.png'">
+                                    <a ui-sref='user({id:friend.id})'><p>{{ friend.first_name.toUpperCase() }} {{ friend.last_name.toUpperCase() }}</p></a>
+                                    <div class="secondary-content">
+                                        <a href="" class="btn green" ng-click='acceptFriend(friend.inviter, friend.invited)'>accept</a>
+                                        <a href="" class="btn red">decline</a>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

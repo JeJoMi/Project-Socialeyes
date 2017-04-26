@@ -54,5 +54,9 @@ app.service('userService', [
 		this.getEvents = function(){
 			return $http.get('/getDataFrom/user_events')
 		}
+
+		this.acceptFriend = function(obj){
+			return $http.delete('/deleteDataFrom/pending_friends?invited='+obj.invited+'&inviter='+obj.inviter)
+		}
 	}
 ])

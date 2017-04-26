@@ -6,6 +6,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const cors = require('cors');
 const getDataRoutes = require('./routes/getDataRoutes');
 const postDataRoutes = require('./routes/postDataRoutes');
+const deleteDataRoutes = require('./routes/deleteDataRoutes')
 const keys = require('./keys');
 const logout = require('express-passport-logout')
 
@@ -32,6 +33,7 @@ app.use(express.static('./public'))
 
 app.use('/getDataFrom', getDataRoutes)
 app.use('/postDataTo', postDataRoutes)
+app.use('/deleteDataFrom', deleteDataRoutes)
 
 app.get('/s3_signed_url', aws.getSignedUrl)
 
