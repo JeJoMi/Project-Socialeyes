@@ -3,189 +3,205 @@
   <!-- ///////////////////////////////////////////// -->
   <!-- ////// Create event Button //////////// -->
   <!-- //////////////////////////////////////////// -->
-    <a data-target='createEvent' class="btn-flat"><i class="material-icons right">add</i>Create Event</a>
+  <a data-target='createEvent' class="btn-flat"><i class="material-icons right">add</i>Create Event</a>
 
-    <div id="createEvent" class="modal">
-        <div class="modal-content">
-            <h4 class="center-align">Create event</h4>
+  <div id="createEvent" class="modal">
+    <div class="modal-content">
+      <h4 class="center-align">Create event</h4>
+      <div class="input-field">
+        <input id="eventTitle" type="text" class="validate">
+        <label for="eventTitle">Event Title</label>
+      </div>
+      <div class="input-field">
+        <textarea id="description" class="materialize-textarea"></textarea>
+        <label for="description">Description</label>
+      </div>
+
+      <div class="row">
+        <p class="col s3">
+          <input type="checkbox" id="sports" ng-model='event.sports' />
+          <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
+        </p>
+        <p class="col s3">
+          <input type="checkbox" id="videoGames" ng-model='event.videoGames' />
+          <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
+        </p>
+        <p class="col s3">
+          <input type="checkbox" id="boardGames" ng-model='event.boardGames' />
+          <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
+        </p>
+        <p class="col s3">
+          <input type="checkbox" id="misc" ng-model='event.misc' />
+          <label for="misc"><i class="fa fa-child"></i> Misc</label>
+        </p>
+      </div>
+      {{event}}
+      <p class='grey-text'>Only those attending will be able to see the event address.</p>
+      <div class="input-field">
+        <input type="text" id='streetAddress' type="text" class="validate">
+        <label for="streetAddress">Street Address</label>
+      </div>
+      <div class="row">
+        <div class="col s4">
+          <div class="input-field">
+            <input type="text" id="zip" value="">
+            <label for="zip">zip</label>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="input-field">
+            <input type="text" id="city" value="">
+            <label for="zip">city</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="" class="modal-action modal-close waves-effect waves-light btn-flat">Create</a>
+    </div>
+  </div>
+
+  <!-- ///////////////////////////////////////////// -->
+  <!-- ////// News feed and events section //////////// -->
+  <!-- //////////////////////////////////////////// -->
+
+  <div class="row">
+    <div class="card blue medium">
+      <div class="card-image">
+        <img src="assets/user-profile-bg.jpg">
+      </div>
+
+      <!-- ///////////////////////////////////////////// -->
+      <!-- ////// Search events section //////////// -->
+      <!-- //////////////////////////////////////////// -->
+
+      <div class="card-content center-align">
+        <h5 class="white-text">Events</h5>
+        <hr></hr>
+        <p class="white-text">Enter your zip code to get all the information about local Events in your area.</p>
+        <a class="btn-floating btn-large waves-effect waves-light orange" data-target="modal1"><i class="material-icons">search</i></a>
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+
             <div class="input-field">
-                <input id="eventTitle" type="text" class="validate">
-                <label for="eventTitle">Event Title</label>
+              <h5 class="center-align grey-text">Search events by zip code</h5>
+              <input id="eventTitle" type="text" class="validate">
+              <label for="eventTitle">zip code</label>
             </div>
             <div class="input-field">
-                <textarea id="description" class="materialize-textarea"></textarea>
-                <label for="description">Description</label>
+              <h5 class="center-align grey-text">Search event by type</h5>
             </div>
 
             <div class="row">
-                <p class="col s3">
-                    <input type="checkbox" id="sports" ng-model='event.sports' />
-                    <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
-                </p>
-                <p class="col s3">
-                    <input type="checkbox" id="videoGames" ng-model='event.videoGames' />
-                    <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
-                </p>
-                <p class="col s3">
-                    <input type="checkbox" id="boardGames" ng-model='event.boardGames' />
-                    <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
-                </p>
-                <p class="col s3">
-                    <input type="checkbox" id="misc" ng-model='event.misc' />
-                    <label for="misc"><i class="fa fa-child"></i> Misc</label>
-                </p>
+              <p class="col s3">
+                <input type="checkbox" id="sports" ng-model='event.sports' />
+                <label for="sports"><i class="fa fa-futbol-o"></i> Sports</label>
+              </p>
+              <p class="col s3">
+                <input type="checkbox" id="videoGames" ng-model='event.videoGames' />
+                <label for="videoGames"><i class="fa fa-gamepad"></i> Video Games</label>
+              </p>
+              <p class="col s3">
+                <input type="checkbox" id="boardGames" ng-model='event.boardGames' />
+                <label for="boardGames"><i class="fa fa-puzzle-piece"></i> Board Games</label>
+              </p>
+              <p class="col s3">
+                <input type="checkbox" id="misc" ng-model='event.misc' />
+                <label for="misc"><i class="fa fa-child"></i> Misc</label>
+              </p>
             </div>
             {{event}}
-            <p class='grey-text'>Only those attending will be able to see the event address.</p>
-            <div class="input-field">
-                <input type="text" id='streetAddress' type="text" class="validate">
-                <label for="streetAddress">Street Address</label>
-            </div>
-            <div class="row">
-                <div class="col s4">
-                    <div class="input-field">
-                        <input type="text" id="zip" value="">
-                        <label for="zip">zip</label>
-                    </div>
-                </div>
-                <div class="col s4">
-                    <div class="input-field">
-                        <input type="text" id="city" value="">
-                        <label for="zip">city</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
+          </div>
+          <div class="modal-footer">
             <a href="" class="modal-action modal-close waves-effect waves-light btn-flat">Create</a>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ///////////////////////////////////////////// -->
+  <!-- ////// Upcomming events section //////////// -->
+  <!-- //////////////////////////////////////////// -->
+
+  <div class="card">
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a ng-click="currentTab = 'upcomingEvents'">Upcomming Events</a></li>
+        <li class="tab" ng-show='user'><a ng-click="currentTab = 'myEvents'">My Events</a></li>
+      </ul>
     </div>
 
-    <!-- ///////////////////////////////////////////// -->
-    <!-- ////// News feed and events section //////////// -->
-    <!-- //////////////////////////////////////////// -->
+    <div class="grey lighten-4">
+      <div ng-show="currentTab === 'upcomingEvents' || currentTab ===  undefined">
+        <ul class="collection">
+          <li class="collection-item avatar" ng-repeat='event in currentEvents'>
+            <i ng-show='event.event_types.includes("sport")' class="fa fa-futbol-o circle blue"></i>
+            <i ng-show='event.event_types.includes("misc")' class="fa fa-child circle green"></i>
+            <i ng-show='event.event_types.includes("videoGames")' class="fa fa-gamepad circle purple"></i>
+            <i ng-show='event.event_types.includes("boardGames")' class="fa fa-puzzle-piece circle red"></i>
+            <span class="title"><!--event name -->{{event.event_name}}</span>
+            <p>
+              <!-- event date-->{{event.event_date}}<br>
+              <!-- event location -->{{event.location}}
+            </p>
 
-    <div class="row">
-        <div class="card blue medium">
-            <div class="card-image">
-                <img src="assets/user-profile-bg.jpg">
-            </div>
-
-            <!-- ///////////////////////////////////////////// -->
-            <!-- ////// Search events section //////////// -->
-            <!-- //////////////////////////////////////////// -->
-
-            <div class="card-content white-text center-align">
-                <h5>Events</h5>
-                <hr></hr>
-                <p>Enter your zip code to get all the information about local Events in your area.</p>
-                <a class="btn-floating btn-large waves-effect waves-light orange" data-target="modal1"><i class="material-icons">search</i></a>
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4 class='underline center-align grey-text text-lighten-1'>Filter</h4>
-                        <hr>
-                        <div class="input-field">
-                            <input type="text" id='filter'>
-                            <label for="filter">Search</label>
-                        </div>
-
-                        <h5 class="grey-text text-lighten-1">filter events by type</h5>
-                        <div class="row">
-                            <p class="col s12 m9 offset-m3">
-                                <input type="checkbox" id="board-games" class="browser-default" />
-                                <label for="board-games"><i class="fa fa-puzzle-piece fa-lg"></i> Board Games</label>
-                            </p>
-                            <p class="col s12 m9 offset-m3">
-                                <input type="checkbox" id="sports" class="browser-default" />
-                                <label for="sports"><i class="fa fa-futbol-o fa-lg"></i> Sports</label>
-                            </p>
-                        </div>
-                    </div>
+            <a class="btn waves-effect waves-light orange secondary-content" data-target="{{event.id}}">Details</a>
+            <div id="{{event.id}}" class="modal">
+              <div class="modal-content">
+                <h4><!-- event name -->{{event.event_name}}</h4>
+                <p>
+                  <!-- event date -->{{event.event_date}}</p>
+                <p>
+                  <!-- event location -->{{event.location}}
+                </p>
+                <br></br>
+                <p>
+                  <!-- event Description -->{{event.description}}
+                </p>
+                <br></br>
+                <div>
+                  <img src="assets/google-maps-new-interface-small.png">
                 </div>
+              </div>
             </div>
+          </li>
+        </ul>
+      </div>
 
-            <!-- ///////////////////////////////////////////// -->
-            <!-- ////// Upcomming events section //////////// -->
-            <!-- //////////////////////////////////////////// -->
+      <div ng-show="currentTab === 'myEvents'">
+        <ul class="collection">
+          <li class="collection-item avatar" ng-repeat='event in user.events'>
+            <i class="material-icons circle green">today</i>
+            <span class="title"><!--event name -->{{event.event_name}}</span>
+            <p>
+              <!-- event date-->{{event.event_date}}<br>
+              <!-- event location -->
+            </p>
 
-            <div class="card">
-                <div class="card-tabs">
-                    <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a ng-click="currentTab = 'upcomingEvents'">Upcomming Events</a></li>
-                        <li class="tab" ng-show='user'><a ng-click="currentTab = 'myEvents'">My Events</a></li>
-                    </ul>
+            <a class="btn waves-effect waves-light orange secondary-content" data-target="modal2">Details</a>
+            <div id="modal2" class="modal">
+              <div class="modal-content">
+                <h4><!-- event name -->{{event.event_name}}</h4>
+                <p>
+                  <!-- event date -->{{event.event_date}}</p>
+                <p>
+                  <!-- event location -->
+                </p>
+                <br></br>
+                <p>
+                  <!-- event Description -->{{event.description}}
+                </p>
+                <button>hello world</button>
+                <br></br>
+                <div>
+                  <img src="assets/google-maps-new-interface-small.png">
+                  <br></br>
                 </div>
-
-                <div class="grey lighten-4">
-                    <div ng-show="currentTab === 'upcomingEvents' || currentTab ===  undefined">
-                        <ul class="collection">
-                            <li class="collection-item avatar" ng-repeat='event in currentEvents'>
-                                <i ng-show='event.event_types.includes("sport")' class="fa fa-futbol-o circle blue"></i>
-                                <i ng-show='event.event_types.includes("misc")' class="fa fa-child circle green"></i>
-                                <i ng-show='event.event_types.includes("videoGames")' class="fa fa-gamepad circle purple"></i>
-                                <i ng-show='event.event_types.includes("boardGames")' class="fa fa-puzzle-piece circle red"></i>
-                                <span class="title"><!--event name -->{{event.event_name}}</span>
-                                <p>
-                                    <!-- event date-->{{event.event_date}}<br>
-                                    <!-- event location -->{{event.location}}
-                                </p>
-
-                                <a class="btn waves-effect waves-light orange secondary-content" data-target="{{event.id}}">Details</a>
-                                <div id="{{event.id}}" class="modal">
-                                    <div class="modal-content">
-                                        <h4><!-- event name -->{{event.event_name}}</h4>
-                                        <p>
-                                            <!-- event date -->{{event.event_date}}</p>
-                                        <p>
-                                            <!-- event location -->{{event.location}}
-                                        </p>
-                                        <br></br>
-                                        <p>
-                                            <!-- event Description -->{{event.description}}
-                                        </p>
-                                        <br></br>
-                                        <div>
-                                            <img src="assets/google-maps-new-interface-small.png">
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div ng-show="currentTab === 'myEvents'">
-                        <ul class="collection">
-                            <li class="collection-item avatar" ng-repeat='event in user.events'>
-                                <i class="material-icons circle green">today</i>
-                                <span class="title"><!--event name -->{{event.event_name}}</span>
-                                <p>
-                                    <!-- event date-->{{event.event_date}}<br>
-                                    <!-- event location -->
-                                </p>
-
-                                <a class="btn waves-effect waves-light orange secondary-content" data-target="modal2">Details</a>
-                                <div id="modal2" class="modal">
-                                    <div class="modal-content">
-                                        <h4><!-- event name -->{{event.event_name}}</h4>
-                                        <p>
-                                            <!-- event date -->{{event.event_date}}</p>
-                                        <p>
-                                            <!-- event location -->
-                                        </p>
-                                        <br></br>
-                                        <p>
-                                            <!-- event Description -->{{event.description}}
-                                        </p>
-                                        <button>hello world</button>
-                                        <br></br>
-                                        <div>
-                                            <img src="assets/google-maps-new-interface-small.png">
-                                            <br></br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+              </div>
             </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
