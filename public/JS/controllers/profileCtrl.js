@@ -11,8 +11,8 @@ app.controller('profileCtrl', [
 			$scope.profile = x.data
 		}, err => console.log( err ))
 
-		$scope.addFriend=function(reciever, sender){
-			let obj = {sender, reciever}
+		$scope.addFriend=function(receiver, sender){
+			let obj = {sender, receiver}
 			profileSrvc.addFriend(obj)
 		}
 

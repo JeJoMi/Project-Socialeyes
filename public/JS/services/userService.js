@@ -56,7 +56,9 @@ app.service('userService', [
 		}
 
 		this.acceptFriend = function(obj){
-			return $http.delete('/deleteDataFrom/pending_friends?invited='+obj.invited+'&inviter='+obj.inviter)
+			$http.delete('/deleteDataFrom/pending_friends?invited='+obj.invited+'&inviter='+obj.inviter).then(x=>{
+			},err=>console.log(err))
+			return $http.post('/postDataTo/acceptFriend', obj)
 		}
 	}
 ])
