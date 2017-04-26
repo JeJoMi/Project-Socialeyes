@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.patch('/edit_profile', postDataCtrl.updateProfile);
 router.post('/events', postDataCtrl.createEvent);
+router.post('/join_events', postDataCtrl.join_events);
 // router.post('/user_photos', postDataCtrl.createAlbum);
 router.post('/messages', postDataCtrl.createNewMessage);
 router.post('/addFriend', postDataCtrl.addFriend);

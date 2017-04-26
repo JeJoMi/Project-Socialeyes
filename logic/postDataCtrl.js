@@ -87,5 +87,9 @@ module.exports = {
     acceptFriend: function(req, res){
         db.acceptFriend([req.body.invited, req.body.inviter],(err,succ)=>console.log(err))
         db.acceptFriend([req.body.inviter,req.body.invited],(err,succ)=>console.log(err))
+    },
+    join_events: function(req, res){
+        console.log(req.body);
+        db.joinEvents([req.body.event, req.body.user],(err,event)=>console.log(err))
     }
 }

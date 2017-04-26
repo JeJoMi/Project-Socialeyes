@@ -5,4 +5,8 @@ app.service('mainSrvc', ['$http', function($http){
     this.logout=function(){
         return $http.get('/logout')
     }
+    this.rsvp = function(obj){
+        
+        return $http.post('/postdatato/join_events',obj)
+    }
 }])

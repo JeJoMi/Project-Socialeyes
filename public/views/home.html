@@ -183,7 +183,7 @@
                                                         <img ng-src="{{event.photo}}" alt="">
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <a class='btn orange'>Rsvp</a>
+                                                        <a class='btn orange' ng-click='rsvp(user.email, event.id, event.event_name)'>Rsvp</a>
                                                     </div>
                                                 </div>
                                             </div>

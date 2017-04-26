@@ -36,5 +36,13 @@ app.controller('mainCtrl', [
 			$scope.user = undefined
 			mainSrvc.logout( ).then(x => location.reload( ))
 		}
+
+		$scope.rsvp = function(user, event, name){
+			console.log(name);
+			let obj = {user,event}
+			mainSrvc.rsvp(obj).then(x=>{
+			})
+			location.reload()
+		}
 	}
 ])
