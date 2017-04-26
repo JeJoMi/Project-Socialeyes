@@ -50,11 +50,11 @@ app.controller('userController', [
 		}
 		userService.getEvents( ).then(response => {
 			response.data.reverse( )
-			response.data.map(x => x.created_at = moment( x.created_at ).format( 'MMM Do YYYY' ))
-			response.data.map(x => x.event_date = moment( x.event_date ).format( 'MMM Do YYYY' ))
+			response.data.map(x => x.created_at = moment( x.created_at ).format( 'ddd MMM Do YYYY' ))
+			response.data.map(x => x.event_date = moment( x.event_date ).format( 'ddd MMM Do YYYY' ))
 			$scope.events = response.data
 		})
-		
+
 		$scope.acceptFriend = function ( inviter, invited ) {
 			console.log('hitting me');
 			let obj = {
