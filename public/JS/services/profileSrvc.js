@@ -3,6 +3,6 @@ app.service('profileSrvc', ['$http',function($http){
         return $http.get('/getDataFrom/profile/'+id)
     }
     this.addFriend = function(obj){
-        return $http.post('/postdatato/')
+        return $http.post('/postdatato/addFriend', obj)
     }
 }])
