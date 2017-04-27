@@ -17,7 +17,7 @@ module.exports={
     },
 
     deleteMessages: function(req, res, next) {
-      // console.log('*************', req.query);
+      console.log('*************', req.query);
       db.deleteMessage([req.query.senders_email, req.query.receivers_email, req.query.message], function(err, deletedMessage) {
         console.log(err, deletedMessage);
       })
