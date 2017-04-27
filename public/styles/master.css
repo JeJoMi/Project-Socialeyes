@@ -8,3 +8,10 @@
     opacity: .3;
     cursor: pointer;
 }
+cite{
+    font-size: .7em;
+}
+.messagePadding{
+margin: 0;
+padding: 0
+}
