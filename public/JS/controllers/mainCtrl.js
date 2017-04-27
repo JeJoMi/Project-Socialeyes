@@ -19,13 +19,16 @@ app.controller('mainCtrl', [
 		});
 
 		mainSrvc.getUser( ).then(x => {
-			x.data[0].first_name = capitalizeFirstLetter( x.data[0].first_name )
-			x.data[0].last_name = capitalizeFirstLetter( x.data[0].last_name )
-			$scope.selected = x.data[0].messenger[0].email
-			// x.data[0].newMessages = x.data[0].messages.filter(f => {
-			// 	return f.senders_email != x.data[0].email
-			// })
-			x.data[0].events.map(x=>x.event_date = moment(x.event_date).format('ddd MMM Do YYYY'))
+			if(x.data[0].first_name){
+				x.data[0].first_name = capitalizeFirstLetter( x.data[0].first_name )
+			}
+			if(x.data[0].last_name){
+				x.data[0].last_name = capitalizeFirstLetter( x.data[0].last_name )
+			}
+			if(x.data[0].messenger[0]){
+				$scope.selected = x.data[0].messenger[0].email
+			}
+			x.data[0].events.map(x=>x.event_date = moment(x.event_date).format('ddd MMM Do YYYY')) || undefined
 			// console.log(x.data[0].newMessages);
 			$scope.user = x.data[0]
 			console.log( $scope.user );
