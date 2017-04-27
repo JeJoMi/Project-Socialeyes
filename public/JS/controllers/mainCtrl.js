@@ -11,6 +11,7 @@ app.controller('mainCtrl', [
 			$( '.modal' ).modal( );
 
 			$( '.collapsible' ).collapsible( );
+			$( ".dropdown-button" ).dropdown( )
 
 			// $('.datepicker').pickadate({
 			// selectMonths: true, // Creates a dropdown to control month
@@ -20,14 +21,14 @@ app.controller('mainCtrl', [
 		mainSrvc.getUser( ).then(x => {
 			x.data[0].first_name = capitalizeFirstLetter( x.data[0].first_name )
 			x.data[0].last_name = capitalizeFirstLetter( x.data[0].last_name )
-			x.data[0].newMessages = x.data[0].messages.filter(f => {
-				return f.senders_email != x.data[0].email
-			})
+			$scope.selected = x.data[0].messenger[0].email
+			// x.data[0].newMessages = x.data[0].messages.filter(f => {
+			// 	return f.senders_email != x.data[0].email
+			// })
 			x.data[0].events.map(x=>x.event_date = moment(x.event_date).format('ddd MMM Do YYYY'))
 			// console.log(x.data[0].newMessages);
 			$scope.user = x.data[0]
 			console.log( $scope.user );
-			$( ".dropdown-button" ).dropdown( )
 
 		}, err => console.log( err ))
 
@@ -44,5 +45,9 @@ app.controller('mainCtrl', [
 			})
 			location.reload()
 		}
+		$scope.select = function(email){
+			$scope.selected = email
+		}
 	}
+
 ])

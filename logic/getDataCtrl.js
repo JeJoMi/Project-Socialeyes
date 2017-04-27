@@ -10,7 +10,19 @@ module.exports = {
 						// console.log(err,'++++++++++++++', attendedEvents);
 						users[0].events = attendedEvents
 						db.getMessagesByUserEmail([users[0].email], ( err, receivedMessage ) => {
+							let from=[];
+							receivedMessage.map((x)=>{
+								let bool = false
+								from.length==0?from.push(x):''
+								for(let i = 0;i<from.length;i++){
+									from[i].email == x.email?bool=true:bool=bool
+								}
+								if(!bool)from.push(x)
+							})
+							console.log(from,'stuff');
+							users[0].messenger = from
 							users[0].messages = receivedMessage
+
 							db.getFriends([users[0].email], ( err, currentFriends ) => {
 
 								users[0].friends = currentFriends
