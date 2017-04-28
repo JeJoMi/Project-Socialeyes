@@ -6,7 +6,9 @@ app.service('mainSrvc', ['$http', function($http){
         return $http.get('/logout')
     }
     this.rsvp = function(obj){
-        
         return $http.post('/postdatato/join_events',obj)
+    }
+    this.sendMessage = function(obj){
+        $http.post('/postdatato/messages',obj)
     }
 }])

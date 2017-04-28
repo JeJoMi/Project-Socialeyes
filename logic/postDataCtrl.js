@@ -57,26 +57,25 @@ module.exports = {
 		db.createMessage([
 			sender, receiver, message
 		], function ( err, newMessage ) {
-			// console.log(err, '$$$$$$$$$$$$', newMessage);
+			console.log( err, '$$$$$$$$$$$$', newMessage );
 			res.send( newMessage )
 		})
 	},
 
-  // createAlbum: (req, res, next) => {
-  //   let {
-  //     userEmail,
-  //     description,
-  //     photoUrl
-  //   } = req.body
-  //   db.createAlbum([userEmail, description, photoUrl], function(err, newAlbum) {
-  //     console.log(err, '@@@@@@@@@@@', newAlbum);
-  //     res.send(newAlbum)
-  //   })
-  // },
-
+	// createAlbum: (req, res, next) => {
+	//   let {
+	//     userEmail,
+	//     description,
+	//     photoUrl
+	//   } = req.body
+	//   db.createAlbum([userEmail, description, photoUrl], function(err, newAlbum) {
+	//     console.log(err, '@@@@@@@@@@@', newAlbum);
+	//     res.send(newAlbum)
+	//   })
+	// },
 
 	addFriend: ( req, res, next ) => {
-        console.log(req.body);
+		console.log( req.body );
 		db.addFriend([
 			req.body.sender, req.body.receiver
 		], function ( err, newFriend ) {
@@ -84,12 +83,19 @@ module.exports = {
 			res.send( newFriend )
 		})
 	},
-    acceptFriend: function(req, res){
-        db.acceptFriend([req.body.invited, req.body.inviter],(err,succ)=>console.log(err))
-        db.acceptFriend([req.body.inviter,req.body.invited],(err,succ)=>console.log(err))
-    },
-    join_events: function(req, res){
-        console.log(req.body);
-        db.joinEvents([req.body.event, req.body.user],(err,event)=>console.log(err))
-    }
+	acceptFriend: function ( req, res ) {
+		db.acceptFriend([
+			req.body.invited, req.body.inviter
+		], ( err, succ ) => console.log( err ))
+		db.acceptFriend([
+			req.body.inviter, req.body.invited
+		], ( err, succ ) => console.log( err ))
+	},
+	join_events: function ( req, res ) {
+		console.log( req.body );
+		db.joinEvents([
+			req.body.event, req.body.user
+		], ( err, event ) => console.log( err ))
+	}
+
 }

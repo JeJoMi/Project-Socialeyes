@@ -50,6 +50,10 @@ app.controller('mainCtrl', [
 		$scope.select = function(email){
 			$scope.selected = email
 		}
-	}
 
+		$scope.sendMessage = function(sender, receiver, message){
+			let obj = {sender,receiver,message}
+			mainSrvc.sendMessage(obj)
+		}
+	}
 ])

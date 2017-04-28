@@ -10,5 +10,4 @@ router.post('/messages', postDataCtrl.createNewMessage);
 router.post('/addFriend', postDataCtrl.addFriend);
 router.post('/acceptFriend', postDataCtrl.acceptFriend)
 
-
 module.exports = router;
