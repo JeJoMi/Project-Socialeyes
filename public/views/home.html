@@ -124,8 +124,8 @@
             <div class="col s12">
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width grey lighten-4">
-                        <li class="tab"><a ng-click="currentTab = 'newsFeed'">Hosting</a></li>
-                        <li class="tab"><a ng-click="currentTab = 'recentEvents'">All Events</a></li>
+                        <li class="tab"><a ng-click="currentTab = 'newsFeed'">All Events</a></li>
+                        <li class="tab"><a ng-click="currentTab = 'recentEvents'">Hosting Events</a></li>
                     </ul>
                 </div>
                 <div class="card">
@@ -134,29 +134,31 @@
 
 
                             <ul class="collection">
-                                <li class="collection-item avatar" ng-repeat='event in user.events'>
-                                    <i class="fa fa-child circle green" ng-show='event.event_types.includes("misc")'></i>
-                                    <i class="fa fa-futbol-o circle blue" ng-show='event.event_types.includes("sport")'></i>
-                                    <i class="fa fa-gamepad circle purple" ng-show='event.event_types.includes("video")'></i>
-                                    <i class="fa fa-puzzle-piece circle red" ng-show='event.event_types.includes("misc")'></i>
-                                    <span class="title">{{event.event_name}}</span>
-                                    <p>{{event.event_date}} <br> {{event.location.split('&').pop()}}
-                                    </p>
+                                <li class="collection-item avatar" ng-repeat='event in user.events'ng-show='event.created_by === user.email'>
+                                    <div >
+                                        <i class="fa fa-child circle green" ng-show='event.event_types.includes("misc")'></i>
+                                        <i class="fa fa-futbol-o circle blue" ng-show='event.event_types.includes("sport")'></i>
+                                        <i class="fa fa-gamepad circle purple" ng-show='event.event_types.includes("video")'></i>
+                                        <i class="fa fa-puzzle-piece circle red" ng-show='event.event_types.includes("misc")'></i>
+                                        <span class="title">{{event.event_name}}</span>
+                                        <p>{{event.event_date}} <br> {{event.location.split('&').pop()}}
+                                        </p>
 
-                                    <a class="waves-effect waves-light btn-flat orange-text secondary-content" data-target="{{event.id}}">Details</a>
-                                    <div id="{{event.id}}" class="modal">
-                                        <div class="modal-content">
-                                            <h4>{{event.event_name}}</h4>
-                                            <p>{{event.event_date}}</p>
-                                            <p>{{event.location.replace('&', ', ').replace('&', ', ')}}</p>
-                                            <br></br>
-                                            <p>
-                                                {{event.description}}
-                                            </p>
-                                            <br></br>
-                                            <div>
-                                                <img ng-src="{{event.photo}}">
+                                        <a class="waves-effect waves-light btn-flat orange-text secondary-content" data-target="{{event.id}}">Details</a>
+                                        <div id="{{event.id}}" class="modal">
+                                            <div class="modal-content">
+                                                <h4>{{event.event_name}}</h4>
+                                                <p>{{event.event_date}}</p>
+                                                <p>{{event.location.replace('&', ', ').replace('&', ', ')}}</p>
                                                 <br></br>
+                                                <p>
+                                                    {{event.description}}
+                                                </p>
+                                                <br></br>
+                                                <div>
+                                                    <img ng-src="{{event.photo}}">
+                                                    <br></br>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
