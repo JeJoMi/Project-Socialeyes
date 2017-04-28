@@ -51,7 +51,20 @@
 
                     <li>
                         <div class="collapsible-header grey lighten-5"><span class="badge">{{user.friends.length || 0}}</span><span ng-show='user.newFriends.length>0' class="new badge red accent-4">{{user.newFriends.length}}</span><i class="material-icons">supervisor_account</i>Friends</div>
-                        <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span></div>
+                        <div class="collapsible-body">
+                          <ul class="collection">
+                            <li class="collection-item" ng-repeat='friend in user.friends'>
+                                <!-- <img ng-src="{{friend.photo}}" alt="" class="responsive-img circle"> -->
+                                <a ui-sref='user({id:friend.id})'> {{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}} </a>
+                                <div class="secondary-content">
+                                  <a href=""><i class="fa fa-envelope fa-1x orange-text"></i></a>
+                                  <a href=""><i class="fa fa-times-circle fa-1x red-text"></i></a>
+                                </div>
+                            </li>
+                          </ul>
+                          <!-- <span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span> -->
+                        </div>
+
                     </li>
 
                     <div id="addFriends" class="modal">
@@ -63,7 +76,10 @@
                                     <a ui-sref='user({id:friend.id})'>
                                         <p>{{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}}</p>
                                     </a>
-                                    <a href="" class="secondary-content waves-effect waves-light orange btn">Remove</a>
+                                    <div class="right-align">
+                                      <a href=""><i class="fa fa-envelope fa-2x"></i></a>
+                                      <a href=""><i class="fa fa-times-circle fa-2x red-text"></i></a>
+                                    </div>
                                 </li>
                                 <li class="collection-item avatar" ng-repeat='friend in user.newFriends'>
                                     <img ng-src="{{friend.photo}}" class='responsive-img circle' alt="" onerror="this.src='http://workshop.barcelona.pm/barcelona2016/img/default-avatar.png'">
