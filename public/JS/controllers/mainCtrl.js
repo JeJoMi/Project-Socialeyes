@@ -49,7 +49,6 @@ app.controller('mainCtrl', [
 		}
 
 		$scope.rsvp = function(user, event, name){
-			console.log(name);
 			let obj = {user,event}
 			mainSrvc.rsvp(obj).then(x=>{
 			})
