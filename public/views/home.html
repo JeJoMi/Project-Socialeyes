@@ -4,7 +4,7 @@
     <!-- //////////////////////////////////////////// -->
     <div class="row">
         <div class="col s12">
-            <div class="card grey white-text">
+            <div class="card blue-grey lighten-2 white-text">
                 <!-- <div class="card-panel grey lighten-3"> -->
                     <!-- <span class="card-title dimgrey-text">Welcome back</span> -->
                     <div class="col m2 s4 ">
@@ -39,7 +39,7 @@
 
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header grey lighten-3"><span class="badge">{{user.events.length || 0}}</span><i class="material-icons">settings_power</i>Events</div>
+                        <div class="collapsible-header grey lighten-5"><span class="badge">{{user.events.length || 0}}</span><i class="material-icons">settings_power</i>Events</div>
                         <div class="collapsible-body center-align"><span><a
                       data-target='createEvent' class="waves-effect waves-light orange btn">Create Event</a></span></div>
                     </li>
@@ -50,7 +50,7 @@
 
 
                     <li>
-                        <div class="collapsible-header grey lighten-3"><span class="badge">{{user.friends.length || 0}}</span><span ng-show='user.newFriends.length>0' class="new badge red accent-4">{{user.newFriends.length}}</span><i class="material-icons">supervisor_account</i>Friends</div>
+                        <div class="collapsible-header grey lighten-5"><span class="badge">{{user.friends.length || 0}}</span><span ng-show='user.newFriends.length>0' class="new badge red accent-4">{{user.newFriends.length}}</span><i class="material-icons">supervisor_account</i>Friends</div>
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span></div>
                     </li>
 
@@ -81,7 +81,7 @@
 
 
                     <li ng-show='user.messages.length>0'>
-                        <div class="collapsible-header grey lighten-3"><span class="new badge red accent-4" ng-show='user.newMessages.length>0'>{{user.newMessages.length || 0}}</span><i class="material-icons">email</i>Messages</div>
+                        <div class="collapsible-header grey lighten-5"><span class="new badge red accent-4" ng-show='user.newMessages.length>0'>{{user.newMessages.length || 0}}</span><i class="material-icons">email</i>Messages</div>
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='messages'>View Messages</a></span></div>
                     </li>
                     <!-- <li>
@@ -89,7 +89,7 @@
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='user_photos'>View Photos</a></span></div>
                     </li> -->
                     <li>
-                        <div class="collapsible-header grey lighten-3"><i class="material-icons">settings</i>Edit Profile</div>
+                        <div class="collapsible-header grey lighten-5"><i class="material-icons">settings</i>Edit Profile</div>
                         <div class="collapsible-body center-align"><span><a class="waves-effect waves-light orange btn" ui-sref='edit_profile'>Edit Profile</a></span></div>
                     </li>
                 </ul>
@@ -99,12 +99,12 @@
                 <!-- //////////////////////////////////////////// -->
 
                 <ul class="collection with-header">
-                    <li class="collection-header grey white-text">
+                    <li class="collection-header blue-grey lighten-2 white-text">
                         <h5>Upcomming Events</h5></li>
                     <!-- <li class="collection-item" ng-repeat='event in user.events track by $index'>
                         <span class="title">"{{event.event_name}}"</span>
                         <p>{{event.event_date}}</p> -->
-                    <li class="collection-item avatar" ng-repeat='event in user.events track by $index'>
+                    <li class="collection-item avatar grey lighten-5" ng-repeat='event in user.events track by $index'>
                         <i class="fa fa-child circle green" ng-show='event.event_types.includes("misc")'></i>
                         <i class="fa fa-futbol-o circle blue" ng-show='event.event_types.includes("sport")'></i>
                         <i class="fa fa-gamepad circle purple" ng-show='event.event_types.includes("video")'></i>
@@ -123,40 +123,42 @@
         <div class="col s8">
             <div class="col s12">
                 <div class="card-tabs">
-                    <ul class="tabs tabs-fixed-width grey lighten-4">
+                    <ul class="tabs tabs-fixed-width grey lighten-5">
                         <li class="tab"><a ng-click="currentTab = 'newsFeed'">All Events</a></li>
-                        <li class="tab"><a ng-click="currentTab = 'recentEvents'">Hosting</a></li>
+                        <li class="tab"><a ng-click="currentTab = 'recentEvents'">Hosting Events</a></li>
                     </ul>
                 </div>
                 <div class="card">
-                    <div class="card-content grey lighten-4">
+                    <div class="card-content grey lighten-5">
                         <div ng-show="currentTab === 'recentEvents'">
 
 
                             <ul class="collection">
-                                <li class="collection-item avatar" ng-repeat='event in user.events'>
-                                    <i class="fa fa-child circle green" ng-show='event.event_types.includes("misc")'></i>
-                                    <i class="fa fa-futbol-o circle blue" ng-show='event.event_types.includes("sport")'></i>
-                                    <i class="fa fa-gamepad circle purple" ng-show='event.event_types.includes("video")'></i>
-                                    <i class="fa fa-puzzle-piece circle red" ng-show='event.event_types.includes("misc")'></i>
-                                    <span class="title">{{event.event_name}}</span>
-                                    <p>{{event.event_date}} <br> {{event.location.split('&').pop()}}
-                                    </p>
+                                <li class="collection-item avatar" ng-repeat='event in user.events'ng-show='event.created_by === user.email'>
+                                    <div >
+                                        <i class="fa fa-child circle green" ng-show='event.event_types.includes("misc")'></i>
+                                        <i class="fa fa-futbol-o circle blue" ng-show='event.event_types.includes("sport")'></i>
+                                        <i class="fa fa-gamepad circle purple" ng-show='event.event_types.includes("video")'></i>
+                                        <i class="fa fa-puzzle-piece circle red" ng-show='event.event_types.includes("misc")'></i>
+                                        <span class="title">{{event.event_name}}</span>
+                                        <p>{{event.event_date}} <br> {{event.location.split('&').pop()}}
+                                        </p>
 
-                                    <a class="waves-effect waves-light btn-flat orange-text secondary-content" data-target="{{event.id}}">Details</a>
-                                    <div id="{{event.id}}" class="modal">
-                                        <div class="modal-content">
-                                            <h4>{{event.event_name}}</h4>
-                                            <p>{{event.event_date}}</p>
-                                            <p>{{event.location.replace('&', ', ').replace('&', ', ')}}</p>
-                                            <br></br>
-                                            <p>
-                                                {{event.description}}
-                                            </p>
-                                            <br></br>
-                                            <div>
-                                                <img ng-src="{{event.photo}}">
+                                        <a class="waves-effect waves-light btn-flat orange-text secondary-content" data-target="{{event.id}}">Details</a>
+                                        <div id="{{event.id}}" class="modal">
+                                            <div class="modal-content">
+                                                <h4>{{event.event_name}}</h4>
+                                                <p>{{event.event_date}}</p>
+                                                <p>{{event.location.replace('&', ', ').replace('&', ', ')}}</p>
                                                 <br></br>
+                                                <p>
+                                                    {{event.description}}
+                                                </p>
+                                                <br></br>
+                                                <div>
+                                                    <img ng-src="{{event.photo}}">
+                                                    <br></br>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

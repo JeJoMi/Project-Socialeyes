@@ -1,4 +1,6 @@
-
+*{
+    font-family: 'open sans';
+}
 /*img
 {
   width: 100%;
@@ -16,11 +18,11 @@ cite{
     padding: 0;
 }
 
-/*.background {
+.background {
     height: 100vh;
     width: auto;
-    background: grey;
-}*/
+    /*background: grey;*/
+}
 
 .landing-header .card {
     margin: 0;
