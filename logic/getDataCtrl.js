@@ -10,6 +10,7 @@ module.exports = {
 					db.getUsersAttendedEvents([users[0].email], ( err, attendedEvents ) => {
 						// console.log(err,'++++++++++++++', attendedEvents);
 						users[0].events = attendedEvents
+						console.log(attendedEvents, 'slkjsldkjlskfjd');
 						db.getMessagesByUserEmail([users[0].email], ( err, receivedMessage ) => {
 							let from=[];
 							receivedMessage.map((x)=>{

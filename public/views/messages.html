@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col s12">
             <div class="card">
-                <div class="card-panel blue">
+                <div class="card-panel blue-grey ">
                     <span class="card-title white-text"> {{user.first_name}} Your Messages {{user.last_name}} <i class="fa {{'fa-'+user.gender}}"></i></span>
                     <div class="col s2 well">
                         <img ng-hide='user.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
@@ -19,11 +19,9 @@
         <div class="col m4">
             <ul class="collection">
                 <li class="collection-item avatar" ng-repeat='messenger in user.messenger'ng-click='select(messenger.email)'>
-                    <a >
                         <img ng-src="{{messenger.photo}}" alt="" class="circle">
-                        <span class="title">{{messenger.first_name}} {{messenger.last_name}}</span>
+                        <h5 class="">{{messenger.first_name}} {{messenger.last_name}}</h5>
                         <p>First Line <br> Second Line</p>
-                    </a>
                 </li>
             </ul>
         </div>
