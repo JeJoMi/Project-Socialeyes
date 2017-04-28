@@ -20,8 +20,9 @@
     <div ng-app='lan-finder'>
         <div style='min-height:100vh;' ng-controller='mainCtrl'>
             <navbar user='user' logout='logout()'></navbar>
-            <br></br>
-            <ui-view></ui-view>
+            <div class="background">
+              <ui-view></ui-view>
+            </div>
             <!-- <footerbar></footerbar> -->
         </div>
     </div>

@@ -4,6 +4,7 @@ module.exports = {
 	user: ( req, res, next ) => {
 		if ( req.user ) {
 			db.getUser([req.user._json.email], ( err, users ) => {
+				console.log(err, users);
 				db.getEventByUserEmail([users[0].email], ( err, event ) => {
 					users[0].hostedEvents = event
 					db.getUsersAttendedEvents([users[0].email], ( err, attendedEvents ) => {
@@ -34,7 +35,8 @@ module.exports = {
 									db.getPendingFriends([users[0].email], ( err, pendingFriends ) => {
 										console.log( err );
 										users[0].newFriends = pendingFriends
-										res.send( users )
+										console.log("Users: ", users)
+										return res.status(200).json( users )
 									})
 								})
 							});
