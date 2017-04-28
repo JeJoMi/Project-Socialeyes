@@ -45,13 +45,11 @@ app.controller('userController', [
 				date
 			}
 			console.log( obj );
-			userService.createEvent( obj );
+			userService.createEvent( obj ).then(x=>console.log(x),err=>console.log(err));
 			location.reload( )
 		}
 		userService.getEvents( ).then(response => {
 			response.data.reverse( )
-			response.data.map(x => x.created_at = moment( x.created_at ).format( 'ddd MMM Do YYYY' ))
-			response.data.map(x => x.event_date = moment( x.event_date ).format( 'ddd MMM Do YYYY' ))
 			$scope.events = response.data
 		})
 
@@ -65,7 +63,7 @@ app.controller('userController', [
 		}
 		$scope.declineFriend = function(inviter, invited){
 			let obj = {inviter, invited}
-			
+
 		}
 	}
 ])
