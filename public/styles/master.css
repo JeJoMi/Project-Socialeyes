@@ -12,35 +12,34 @@ cite{
     font-size: .7em;
 }
 .messagePadding{
-margin: 0;
-padding: 0
+    margin: 0;
+    padding: 0;
 }
 
-.background {
-    /*background: url("/assets/21280905468_cd21b59928_k.jpg") center center / cover;*/
+/*.background {
     height: 100vh;
     width: auto;
-    background: LightSlateGrey;
-}
+    background: grey;
+}*/
 
 .landing-header .card {
-  margin: 0;
-  position: relative;
+    margin: 0;
+    position: relative;
 }
 .card-image img {
-  height: 100%;
-  max-height: 600px;
+    height: 100%;
+    max-height: 600px;
 }
 .header-text {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%)
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%)
 }
 
 .header-subtext  {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translateX(-50%)
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%)
 }
