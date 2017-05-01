@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col s12">
             <div class="card">
@@ -55,4 +55,64 @@
             </div>
         </div>
     </div>
+</div> -->
+
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="" style="min-height:85vh">
+                <div class="">
+                    <span class=" white-text"></span>
+                    <div class="row">
+                        <div class="col s3">
+                            <div class="row">
+                                <ul class="collection">
+                                    <li class="collection-item avatar" ng-repeat='messenger in user.messenger' ng-click='select(messenger.email)'>
+                                        <img ng-src="{{messenger.photo}}" alt="" class="circle responsive-img">
+                                        <span class="title">{{messenger.first_name}} {{messenger.last_name}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div ng-repeat='message in user.messages | filter:selected'>
+                                <div class="col s9">
+                                    <div class="message-chip" ng-show='message.senders_email === user.email'>
+                                        <div class="chip">
+                                            <img ng-src="{{user.photo}}" alt="Contact Person">{{message.message}}
+                                        </div>
+                                        <br>
+                                        <cite>{{message.created_at}}</cite>
+                                    </div>
+
+                                    <!-- USER'S BOX -->
+                                    <div class="message-chip right-align" ng-show='message.senders_email !== user.email'>
+                                        <div class="chip">
+                                            <img ng-src="{{message.photo}}" alt="Contact Person"> {{message.message}}
+                                        </div>
+                                        <br>
+                                        <cite>{{message.created_at}}</cite>
+                                    </div>
+                                </div>
+                                <div class="messagesInput">
+                                    <div class="row">
+                                        <div class="input-field" class="col m9">
+                                            <input id="last_name" type="text" class="validate" ng-model='newMessage'>
+                                            <label for="last_name">Last Name</label>
+                                        </div>
+                                        <a class="waves-effect waves-light btn orange col m2" ng-click='sendMessage(user.email, selected, newMessage)'>Send</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>

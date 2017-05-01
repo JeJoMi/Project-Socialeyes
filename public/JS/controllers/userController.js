@@ -59,7 +59,7 @@ app.controller('userController', [
 				inviter,
 				invited
 			}
-			userService.acceptFriend( obj ).then(x=>{console.log(x)},err=>console.log(err))
+			userService.acceptFriend( obj ).then(x=>{location.reload()},err=>console.log(err))
 		}
 		$scope.declineFriend = function(inviter, invited){
 			let obj = {inviter, invited}

@@ -18,22 +18,24 @@ app.controller('mainCtrl', [
 			selectYears: 15
 		})// Creates a dropdown of 15 years to control year
 		});
+		function getUser(){
+			mainSrvc.getUser( ).then(x => {
 
-		mainSrvc.getUser( ).then(x => {
+				if(x.data[0].first_name){
+					x.data[0].first_name = capitalizeFirstLetter( x.data[0].first_name )
+				}
+				if(x.data[0].last_name){
+					x.data[0].last_name = capitalizeFirstLetter( x.data[0].last_name )
+				}
+				if(x.data[0].messenger[0]){
+					$scope.selected = $scope.selected===undefined? x.data[0].messenger[0].email:$scope.selected
+				}
+				$scope.user = x.data[0]
+				console.log( $scope.user );
 
-			if(x.data[0].first_name){
-				x.data[0].first_name = capitalizeFirstLetter( x.data[0].first_name )
-			}
-			if(x.data[0].last_name){
-				x.data[0].last_name = capitalizeFirstLetter( x.data[0].last_name )
-			}
-			if(x.data[0].messenger[0]){
-				$scope.selected = x.data[0].messenger[0].email
-			}
-			$scope.user = x.data[0]
-			console.log( $scope.user );
-
-		}, err => console.log( err ))
+			}, err => console.log( err ))
+		}
+		getUser()
 
 		$scope.logout = function ( ) {
 			console.log( 'hitting me' );
@@ -53,7 +55,9 @@ app.controller('mainCtrl', [
 
 		$scope.sendMessage = function(sender, receiver, message){
 			let obj = {sender,receiver,message}
-			mainSrvc.sendMessage(obj)
+			mainSrvc.sendMessage(obj).then(x=>{
+				getUser()
+				$scope.selected = receiver})
 		}
 	}
 ])

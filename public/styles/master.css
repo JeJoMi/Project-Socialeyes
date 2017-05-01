@@ -1,6 +1,9 @@
 *{
     font-family: 'open sans';
 }
+body{
+    min-height: 100vh;
+}
 /*img
 {
   width: 100%;
@@ -44,4 +47,9 @@ cite{
     top: 45%;
     left: 50%;
     transform: translateX(-50%)
+}
+.messagesInput{
+    position: absolute;
+    bottom: 0;
+    width: 65%;
 }
