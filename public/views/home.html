@@ -52,6 +52,7 @@
                     <li>
                         <div class="collapsible-header grey lighten-5"><span class="badge">{{user.friends.length || 0}}</span><span ng-show='user.newFriends.length>0' class="new badge red accent-4">{{user.newFriends.length}}</span><i class="material-icons">supervisor_account</i>Friends</div>
                         <div class="collapsible-body">
+
                             <ul class="collection">
                                 <li class="collection-item" ng-repeat='friend in user.friends'>
                                     <a ui-sref='user({id:friend.id})'> {{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}} </a>
@@ -71,6 +72,7 @@
                                 </li>
                             </ul>
                             <!-- <span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span> -->
+
                         </div>
 
                     </li>
