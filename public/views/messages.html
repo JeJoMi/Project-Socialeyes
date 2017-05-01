@@ -58,74 +58,61 @@
 </div> -->
 
 
+<br>
+
 <div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="" style="min-height:85vh">
+                <div class="">
+                    <span class=" white-text"></span>
+                    <div class="row">
+                        <div class="col s3">
+                            <div class="row">
+                                <ul class="collection">
+                                    <li class="collection-item avatar" ng-repeat='messenger in user.messenger' ng-click='select(messenger.email)'>
+                                        <img ng-src="{{messenger.photo}}" alt="" class="circle responsive-img">
+                                        <span class="title">{{messenger.first_name}} {{messenger.last_name}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col s9">
+                            <div ng-repeat='message in user.messages | filter:selected'>
+                                <div class="col s9">
+                                    <div class="message-chip" ng-show='message.senders_email === user.email'>
+                                        <div class="chip">
+                                            <img ng-src="{{user.photo}}" alt="Contact Person">{{message.message}}
+                                        </div>
+                                        <br>
+                                        <cite>{{message.created_at}}</cite>
+                                    </div>
 
-  <div class="row">
-    <div class="col s12">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title white-text">Message</span>
-
-            <div class="row">
-              <div class="col s3">
-                <div class="row">
-                  <ul class="collection">
-                    <li class="collection-item avatar">
-                      <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle responsive-img">
-                      <span class="title">Baby_Cakes_1</span>
-                    </li>
-                    <li class="collection-item avatar">
-                      <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle responsive-img">
-                      <span class="title">Baby_Cakes_2</span>
-                    </li>
-                    <li class="collection-item avatar">
-                      <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="" class="circle responsive-img">
-                      <span class="title">Baby_Cakes_3</span>
-                    </li>
-                  </ul>
+                                    <!-- USER'S BOX -->
+                                    <div class="message-chip right-align" ng-show='message.senders_email !== user.email'>
+                                        <div class="chip">
+                                            <img ng-src="{{message.photo}}" alt="Contact Person"> {{message.message}}
+                                        </div>
+                                        <br>
+                                        <cite>{{message.created_at}}</cite>
+                                    </div>
+                                </div>
+                                <div class="messagesInput">
+                                    <div class="row">
+                                        <div class="input-field" class="col m9">
+                                            <input id="last_name" type="text" class="validate" ng-model='newMessage'>
+                                            <label for="last_name">Last Name</label>
+                                        </div>
+                                        <a class="waves-effect waves-light btn orange col m2" ng-click='sendMessage(user.email, selected, newMessage)'>Send</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-
-            <div class="col s9">
-              <div class="message-chip">
-                <div class="chip">
-                  <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="Contact Person">
-                  You always waiting for a party gurl. Slow down. LOL
-                </div>
-                <br>
-                  <cite>Date and time</cite>
-              </div>
-
-            <!-- USER'S BOX -->
-              <div class="message-chip right-align">
-                <div class="chip">
-                  <img src="assets/Lucia_(PSN_Avatar)_DMC2_(1).png" alt="Contact Person">
-                  Just hanging out waiting for the party
-                </div>
-                <br>
-                  <cite>Date and time</cite>
-              </div>
-
-                    <div class="">
-                      <div class="row">
-                      <input type="text" placeholder="Type your message here" name="" value="">
-                  </div>
-                </div>
-
-
-                <div class="row">
-                  <div class="col s12 right-align">
-                    <a class="waves-effect waves-light btn orange">Send</a>
-                  </div>
-                </div>
-              </div>
-
-              </div>
             </div>
         </div>
-      </div>
+
     </div>
 </div>
 
-</div>

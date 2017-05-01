@@ -53,6 +53,7 @@ module.exports = {
 	},
 
 	createNewMessage: ( req, res, next ) => {
+		console.log(req.body);
 		let { sender, receiver, message } = req.body
 		db.createMessage([
 			sender, receiver, message

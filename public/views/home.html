@@ -6,14 +6,14 @@
         <div class="col s12">
             <div class="card blue-grey lighten-2 white-text">
                 <!-- <div class="card-panel grey lighten-3"> -->
-                    <!-- <span class="card-title dimgrey-text">Welcome back</span> -->
-                    <div class="col m2 s4 ">
-                        <img ng-hide='user.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
-                        <img ng-show='user.photo' ng-src="{{user.photo}}" alt="" style='max-height:180px;border-radius:5px' class="responsive-img z-depth-5">
-                    </div>
+                <!-- <span class="card-title dimgrey-text">Welcome back</span> -->
+                <div class="col m2 s4 ">
+                    <img ng-hide='user.photo' src="http://placehold.it/180x180" alt="" class="circle responsive-img">
+                    <img ng-show='user.photo' ng-src="{{user.photo}}" alt="" style='max-height:180px;border-radius:5px' class="responsive-img z-depth-5">
+                </div>
                 <!-- </div> -->
                 <div class="card-content">
-                  <p class="flow-text"> {{user.first_name}} {{user.last_name}} </p>
+                    <p class="flow-text"> {{user.first_name}} {{user.last_name}} </p>
                     <span><i class="fa {{'fa-'+user.gender}}"></i> {{user.interests}} </span>
                 </div>
             </div>
@@ -52,18 +52,27 @@
                     <li>
                         <div class="collapsible-header grey lighten-5"><span class="badge">{{user.friends.length || 0}}</span><span ng-show='user.newFriends.length>0' class="new badge red accent-4">{{user.newFriends.length}}</span><i class="material-icons">supervisor_account</i>Friends</div>
                         <div class="collapsible-body">
-                          <ul class="collection">
-                            <li class="collection-item" ng-repeat='friend in user.friends'>
-                                <!-- <img ng-src="{{friend.photo}}" alt="" class="responsive-img circle"> -->
-                                <a ui-sref='user({id:friend.id})'> {{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}} </a>
-                                <div class="secondary-content">
-                                  <a href=""><i class="fa fa-envelope fa-1x orange-text"></i></a>
-                                  &nbsp&nbsp&nbsp&nbsp&nbsp
-                                  <a href=""><i class="fa fa-times-circle fa-1x red-text"></i></a>
-                                </div>
-                            </li>
-                          </ul>
-                          <!-- <span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span> -->
+
+                            <ul class="collection">
+                                <li class="collection-item" ng-repeat='friend in user.friends'>
+                                    <a ui-sref='user({id:friend.id})'> {{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}} </a>
+                                    <div class="secondary-content">
+                                        <a ui-sref='messages' ng-click='select(friend.email)'><i class="fa fa-envelope fa-1x orange-text"></i></a> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <a href=""><i class="fa fa-times-circle fa-1x red-text"></i></a>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="grey-text center-align">Pending Friends</li>
+                                <li class="collection-item" ng-repeat='pending in user.newFriends'>
+                                    <a ui-sref='user({id:pending.id})'>{{pending.first_name.toUpperCase()}} {{pending.last_name.toUpperCase()}}</a>
+                                    <div class="secondary-content">
+                                        <a ng-click='acceptFriend(pending.inviter, pending.invited)'><i class="fa fa-check green-text"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <a ng-click='declineFriend(pending.inviter, pending.invited)'><i class="fa fa-close red-text"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- <span><a class="waves-effect waves-light orange btn" data-target='addFriends'>View Friends</a></span> -->
+
                         </div>
 
                     </li>
@@ -78,8 +87,8 @@
                                         <p>{{friend.first_name.toUpperCase()}} {{friend.last_name.toUpperCase()}}</p>
                                     </a>
                                     <div class="right-align">
-                                      <a href=""><i class="fa fa-envelope fa-2x"></i></a>
-                                      <a href=""><i class="fa fa-times-circle fa-2x red-text"></i></a>
+                                        <a href=""><i class="fa fa-envelope fa-2x"></i></a>
+                                        <a href=""><i class="fa fa-times-circle fa-2x red-text"></i></a>
                                     </div>
                                 </li>
                                 <li class="collection-item avatar" ng-repeat='friend in user.newFriends'>
@@ -151,8 +160,8 @@
 
 
                             <ul class="collection">
-                                <li class="collection-item avatar" ng-repeat='event in user.events'ng-show='event.created_by === user.email'>
-                                    <div >
+                                <li class="collection-item avatar" ng-repeat='event in user.events' ng-show='event.created_by === user.email'>
+                                    <div>
                                         <i class="fa fa-child circle green" ng-show='event.event_types.includes("misc")'></i>
                                         <i class="fa fa-futbol-o circle blue" ng-show='event.event_types.includes("sport")'></i>
                                         <i class="fa fa-gamepad circle purple" ng-show='event.event_types.includes("video")'></i>
@@ -193,30 +202,30 @@
                                                 <img ng-src='{{event.photo}}' class=" responsive-img" onerror="this.src='http://fazer.ucam-campos.br/repositorio/img/icons/fa-users.png'">
                                             </div>
                                             <div class="col s8">
-                                              <div class="valign-wrapper">
-                                                <div class="black-text">
-                                                    <h5>{{event.event_name}}</h5>
-                                                    <h6>Posted - {{event.created_at}}</h6>
-                                                    <p>Event Date - {{event.event_date}}</p>
-                                                    <p>Location - {{event.location.split('&').pop()}}</p>
-                                                </div>
-                                                <div class="col s2"><a data-target='{{event.event_name}}' class="waves-effect waves-light btn-flat orange-text">Details</a></div>
-                                                <div id="{{event.event_name}}" class="modal">
-                                                    <div class="modal-content">
-                                                        <h4>{{event.event_name}}</h4>
+                                                <div class="valign-wrapper">
+                                                    <div class="black-text">
+                                                        <h5>{{event.event_name}}</h5>
+                                                        <h6>Posted - {{event.created_at}}</h6>
+                                                        <p>Event Date - {{event.event_date}}</p>
                                                         <p>Location - {{event.location.split('&').pop()}}</p>
-                                                        <p>Date - {{event.event_date}}</p>
-                                                        <br>
-                                                        <p>{{event.description}}</p>
-                                                        <br>
-                                                        <img ng-src="{{event.photo}}" alt="">
-                                                      <div class="row">
-                                                        <div class="col s2 offset-s10">
-                                                          <a class='btn orange' ng-click='rsvp(user.email, event.id, event.event_name)'>Rsvp</a>
-                                                        </div>
-                                                      </div>
                                                     </div>
-                                                  </div>
+                                                    <div class="col s2"><a data-target='{{event.event_name}}' class="waves-effect waves-light btn-flat orange-text">Details</a></div>
+                                                    <div id="{{event.event_name}}" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4>{{event.event_name}}</h4>
+                                                            <p>Location - {{event.location.split('&').pop()}}</p>
+                                                            <p>Date - {{event.event_date}}</p>
+                                                            <br>
+                                                            <p>{{event.description}}</p>
+                                                            <br>
+                                                            <img ng-src="{{event.photo}}" alt="">
+                                                            <div class="row">
+                                                                <div class="col s2 offset-s10">
+                                                                    <a class='btn orange' ng-click='rsvp(user.email, event.id, event.event_name)'>Rsvp</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
